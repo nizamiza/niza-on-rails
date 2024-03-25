@@ -1,24 +1,14 @@
-# README
+# [niza.cz](https://niza.cz)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the source code for the [niza.cz](https://niza.cz) website written in
+Ruby on Rails.
 
-Things you may want to cover:
+I usually go full vanilla when it comes to building my personal website, but
+this time I wanted to try something new. Using products by [37signals](https://37signals.com)
+and listening to their podcasts, I got inspired to try Ruby on Rails. Will see
+how it goes 🤷‍♀️
 
-* Ruby version
+## Resources
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-   [Ruby on Rails](https://rubyonrails.org)
+-   [37signals](https://37signals.com)

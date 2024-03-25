@@ -1,0 +1,29 @@
+<figure>
+  <style>
+    img {
+      --size: 10rem;
+
+      width: var(--size);
+      height: var(--size);
+      object-fit: cover;
+    }
+
+    figure {
+      position: relative;
+      border-radius: var(--br-full);
+      overflow: hidden;
+      order: -1;
+    }
+  </style>
+  <div class="noise" role="img"></div>
+  <%= image_tag "me.jpeg",
+    alt: "Photo of Niza Toshpulatov",
+    width: 160,
+    height: 160
+  %>
+  <figcaption class="sr-only">
+    <p>
+      Photo of Niza Toshpulatov
+    </p>
+  </figcaption>
+</figure>

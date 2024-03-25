@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "reset.css" layer(reset);
+@import "base.css" layer(base);
+
+.giga-emoji {
+  font-size: 5rem;
+}
+
+.page-header {
+  display: grid;
+  grid-column: full-start / full-end;
+  grid-template-columns: subgrid;
+  justify-items: flex-start;
+  gap: 1rem;
+  max-width: 100%;
+  padding-top: 20vh;
+  padding-bottom: 2rem;
+  position: relative;
+
+  & > * {
+    grid-column: main-start / main-end;
+  }
+}
+
+p {
+  max-width: 69ch;
+}
+
+button {
+  display: inline-flex;
+  gap: 0.75ch;
+  justify-content: center;
+  background-color: hsl(var(--theme-accent));
+  color: var(--bg-color);
+  border: 0;
+  padding: 0.35em 1.25em;
+  border-radius: var(--br-lg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+:is(ul, ol, dt) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding-inline-start: 2.5rem;
+}
+
+body {
+  display: grid;
+  gap: 3rem 0rem;
+  align-content: start;
+  justify-content: center;
+  grid-template-columns:
+    [full-start] minmax(1rem, 1fr) [main-start] minmax(0, var(--content-width))
+    [main-end] minmax(1rem, 1fr) [full-end];
+
+  & > main {
+    display: grid;
+    gap: inherit;
+    grid-template-columns: subgrid;
+  }
+
+  & > * {
+    grid-column: main-start / main-end;
+  }
+
+  & > .full {
+    grid-column: full-start / full-end;
+  }
+
+  & > .page-header {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: full-start / full-end;
+  }
+}
+
+.page-footer {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  opacity: 0.75;
+  margin-top: max(auto, 4rem);
+}
+
+.noise {
+  --base-color: hsl(var(--theme-accent));
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(
+      var(--base-color),
+      hsl(var(--theme-light) / 0.4)
+    );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: url("noise.svg");
+    background-repeat: repeat;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.social-link {
+  --size: 2rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-color);
+  line-height: 0;
+  width: var(--size);
+  height: var(--size);
+  aspect-ratio: 1 / 1;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  &:focus-visible {
+    outline-color: currentColor;
+    outline-offset: 6px;
+  }
+}

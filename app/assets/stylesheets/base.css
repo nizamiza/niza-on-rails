@@ -1,0 +1,213 @@
+:root {
+  --color-scheme: light;
+
+  /* Theme, HSL components. Usage example: hsl(var(--theme-accent)); */
+  --theme-accent: 221 50% 28%;
+  --theme-dark: 221 19% 20%;
+  --theme-light: 240 23% 92%;
+  --theme-neutral: 214 4% 39%;
+  --theme-black: 220 20% 11%;
+  --theme-white: 220 23% 98%;
+
+  /* Border radiuses */
+  --br-sm: 0.25rem;
+  --br-md: 0.5rem;
+  --br-lg: 0.75rem;
+  --br-xl: 1rem;
+  --br-full: 100vw;
+
+  /* Transition durations */
+  --td-bullet: 25ms;
+  --td-fast: 75ms;
+  --td-normal: 150ms;
+  --td-slow: 300ms;
+  --td-turtle: 450ms;
+
+  /* Box-shadows */
+  --sh-theme: var(--theme-black);
+  --sh-color: hsl(var(--sh-theme) / 0.25);
+
+  --sh-sm: 0 0.25em 0.5em var(--sh-color);
+  --sh-md: 0 0.5em 1.5em var(--sh-color);
+  --sh-lg: 0 1em 2.25em var(--sh-color);
+  --sh-xl: 0 2em 5em var(--sh-color);
+
+  --bg-color: hsl(var(--theme-white));
+  --fg-color: hsl(var(--theme-dark));
+
+  --ff-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", sans-serif;
+  --ff-mono: "JetBrains Mono", monospace;
+  --fs-base: 1rem;
+  --fs-label: 0.875rem;
+  --fs-caption: 0.825rem;
+  --fs-note: 0.75rem;
+
+  --content-width: 69ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-scheme: dark;
+
+    --theme-accent: 221 50% 80%;
+    --theme-dark: 221 19% 70%;
+    --theme-light: 240 23% 32%;
+    --theme-neutral: 214 4% 88%;
+
+    --bg-color: hsl(var(--theme-black));
+    --fg-color: hsl(var(--theme-white));
+  }
+}
+
+*:focus-visible {
+  --thickness: 1.5px;
+
+  outline-width: var(--thickness);
+  outline-color: hsl(var(--theme-accent));
+  outline-offset: calc(var(--thickness) * 2);
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  color: var(--fg-color);
+  background-color: var(--bg-color);
+  font-family: var(--ff-sans-serif);
+  color-scheme: var(--color-scheme);
+}
+
+a {
+  --thickness: 0.125em;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  color: hsl(var(--theme-accent));
+  text-decoration-thickness: var(--thickness);
+  text-underline-offset: calc(var(--thickness) * 2);
+
+  & > * {
+    display: inline-flex;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  text-wrap: balance;
+}
+
+h1,
+.h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  max-width: 15ch;
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  max-width: 25ch;
+  line-height: 1.1;
+}
+
+h3,
+.h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  max-width: 35ch;
+  line-height: 1.1;
+}
+
+h4,
+.h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  max-width: 40ch;
+  line-height: 1.1;
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  max-width: 45ch;
+  line-height: 1.1;
+}
+
+h6,
+.h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  max-width: 50ch;
+  line-height: 1.1;
+}
+
+@media screen and (min-width: 48rem) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+  }
+
+  h6 {
+    font-size: 1.25rem;
+  }
+}
+
+@layer overwrite {
+  .initial {
+    all: initial;
+  }
+
+  .unset {
+    all: unset;
+  }
+
+  .revert {
+    all: revert;
+  }
+
+  :is(.initial, .unset, .revert) {
+    color: inherit;
+
+    &:focus-visible {
+      --thickness: 1.5px;
+
+      outline-style: solid;
+      outline-width: var(--thickness);
+      outline-color: hsl(var(--theme-accent));
+      outline-offset: calc(var(--thickness) * 2);
+    }
+
+    &:is(button) {
+      cursor: pointer;
+    }
+  }
+}

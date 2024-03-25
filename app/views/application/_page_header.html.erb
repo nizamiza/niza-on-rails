@@ -1,0 +1,6 @@
+<% color = local_assigns.fetch(:color, nil) %>
+
+<header class="page-header noise" <% unless color.nil? %>style="--base-color: <%= color %>"<% end %>>
+  <h1><%= yield :page_title %></h1>
+  <%= yield %>
+</header>

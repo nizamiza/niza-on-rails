@@ -1,0 +1,19 @@
+<% aria_label = local_assigns.fetch(:aria_label, "icon") %>
+<% width = local_assigns.fetch(:width, "24") %>
+<% height = local_assigns.fetch(:height, "24") %>
+<% stroke = local_assigns.fetch(:stroke, "currentColor") %>
+<% stroke_width = local_assigns.fetch(:stroke_width, "2") %>
+
+<svg
+  aria-label="<%= aria_label %>"
+  width="<%= width %>"
+  height="<%= height %>"
+  viewBox="0 0 <%= width %> <%= height %>"
+  stroke="<%= stroke %>"
+  stroke-width="<%= stroke_width %>"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  fill="none"
+>
+  <%= yield %>
+</svg>

@@ -14,7 +14,10 @@
     <%= javascript_importmap_tags %>
 
     <%= yield :head %>
-    <style><%= yield :styles %></style>
+
+    <% if content_for?(:styles) %>
+      <style><%= yield :styles %></style>
+    <% end %>
   </head>
   <body>
     <%= content_for?(:body) ? yield(:body) : yield %>

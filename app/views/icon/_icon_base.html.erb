@@ -2,6 +2,7 @@
 <% class_name = local_assigns.fetch(:class, "") %>
 <% width = local_assigns.fetch(:width, "24") %>
 <% height = local_assigns.fetch(:height, "24") %>
+<% transform = local_assigns.fetch(:transform, "") %>
 <% stroke = local_assigns.fetch(:stroke, "currentColor") %>
 <% stroke_width = local_assigns.fetch(:stroke_width, "2") %>
 
@@ -17,5 +18,7 @@
   stroke-linejoin="round"
   fill="none"
 >
-  <%= yield %>
+  <g transform="<%= transform %>">
+    <%= yield %>
+  </g>
 </svg>

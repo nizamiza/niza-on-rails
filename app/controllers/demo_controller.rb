@@ -1,7 +1,4 @@
 class DemoController < ApplicationController
-  include Util
-
-
   def index
     @default_tab_defs = [
       ["Result", ""],

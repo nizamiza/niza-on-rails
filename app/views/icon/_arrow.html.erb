@@ -1,6 +1,12 @@
 <% direction = local_assigns.fetch(:direction, "left") %>
+<% angle = case direction
+  when "up" then 90
+  when "right" then 180
+  when "down" then 270
+  else 0
+end %> 
 
-<%= render "icon/icon_base", class: "icon-arrow" do %>
+<%= render "icon/icon_base", class: "icon-arrow", transform: "rotate(#{angle} 12 12)" do %>
   <line x1="19" y1="12" x2="5" y2="12"></line>
   <polyline points="12 19 5 12 12 5"></polyline>
 <% end %>

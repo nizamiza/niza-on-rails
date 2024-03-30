@@ -4,6 +4,34 @@
   <%= javascript_include_tag "code-highlight", type: "module" %>
   <%= javascript_include_tag "demo-result", type: "module" %>
 <% end %>
+<% content_for :styles do %>
+  .demo {
+    display: grid;
+    gap: 1rem;
+
+  }
+
+  .demo-header {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .demo-content {
+    display: grid;
+    gap: 0;
+    position: relative;
+
+    & .copy-button {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+
+      [hidden] + & {
+        display: none;
+      }
+    }
+  }
+<% end %>
 <% content_for :page_title do %>Demos<% end %>
 <%= render "application/page_header", color: "slateblue" do %>
   <p>

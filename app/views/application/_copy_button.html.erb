@@ -1,0 +1,12 @@
+<% text = local_assigns.fetch(:text, "") %>
+
+<button
+  class="copy-button unset"
+  title="Copy to clipboard"
+  type="button"
+  data-text='<%= text %>'
+>
+  <%= render "icon/clipboard" %> 
+  <%= render "icon/check" %> 
+  <%= render "icon/alert" %> 
+</button>

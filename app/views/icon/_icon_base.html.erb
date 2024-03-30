@@ -1,4 +1,5 @@
 <% aria_label = local_assigns.fetch(:aria_label, "icon") %>
+<% class_name = local_assigns.fetch(:class, "") %>
 <% width = local_assigns.fetch(:width, "24") %>
 <% height = local_assigns.fetch(:height, "24") %>
 <% stroke = local_assigns.fetch(:stroke, "currentColor") %>
@@ -6,6 +7,7 @@
 
 <svg
   aria-label="<%= aria_label %>"
+  class="<%= class_name %>"
   width="<%= width %>"
   height="<%= height %>"
   viewBox="0 0 <%= width %> <%= height %>"

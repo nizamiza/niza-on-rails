@@ -1,0 +1,18 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "highlight" %>
+  <%= javascript_include_tag "tablist", type: "module" %>
+  <%= javascript_include_tag "code-highlight", type: "module" %>
+  <%= javascript_include_tag "demo-result", type: "module" %>
+<% end %>
+<% content_for :page_title do %>Demos<% end %>
+<%= render "application/page_header", color: "slateblue" do %>
+  <p>
+    Here is the collection of demos that I use in my blog.
+  </p>
+  <%= render "application/back_link" %>
+<% end %>
+<main>
+  <% @demos.each do |demo| %>
+    <%= render "demo", id: demo[:id], tabs: demo[:tabs] %>
+  <% end %>
+</main>

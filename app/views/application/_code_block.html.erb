@@ -1,0 +1,14 @@
+<% lang = local_assigns.fetch(:lang, "plaintext") %>
+<% with_copy_button = local_assigns.fetch(:with_copy_button, true) %>
+<% content = yield %>
+
+<code>
+  <pre
+    class="code-block"
+    data-lang="<%= lang %>"
+    data-content='<%= content %>'
+  ></pre>
+  <% if with_copy_button %>
+    <%= render "application/copy_button", text: content.to_s  %>
+  <% end %>
+</code>

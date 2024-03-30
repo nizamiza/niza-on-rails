@@ -17,6 +17,7 @@ p,
 figure,
 blockquote,
 dl,
+pre,
 dd {
   margin: 0;
 }

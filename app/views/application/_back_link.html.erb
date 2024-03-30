@@ -1,0 +1,6 @@
+<% path = local_assigns.fetch(:path, "/") %>
+
+<%= link_to(path) do %>
+  <% render "icon/arrow", direction: "left" %>
+  Back to <%= path == "/" ? "root" : path.gsub("/", "") %>
+<% end %>

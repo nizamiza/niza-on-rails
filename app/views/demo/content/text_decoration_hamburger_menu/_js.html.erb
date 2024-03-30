@@ -1,0 +1,12 @@
+/**
+ * @this {HTMLButtonElement}
+ */
+function toggleNav() {
+  const expanded = this.getAttribute("aria-expanded") === "true";
+  const nav = this.parentElement.querySelector(
+    `#${this.getAttribute("aria-controls")}`
+  );
+
+  this.setAttribute("aria-expanded", !expanded);
+  nav.hidden = expanded;
+}

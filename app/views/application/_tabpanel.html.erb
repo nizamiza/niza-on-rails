@@ -1,0 +1,13 @@
+<% id = local_assigns.fetch(:id, "") %>
+<% hidden = local_assigns.fetch(:hidden, false) %>
+<% code_block = local_assigns.fetch(:code_block, false) %>
+
+<div
+  role="tabpanel"
+  id="<%= id %>"
+  data-has-code-block="<%= code_block %>"
+  aria-labelledby="<%= id %>-tab"
+  <%= hidden ? 'hidden' : '' %>
+>
+  <%= yield %>
+</div>

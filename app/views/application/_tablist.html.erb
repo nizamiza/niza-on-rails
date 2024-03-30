@@ -1,0 +1,16 @@
+<% id = local_assigns.fetch(:id) %>
+<% aria_label = local_assigns.fetch(:aria_label, "Tabs") %>
+<% tabs = local_assigns.fetch(:tabs, []) %>
+
+<div id="<%= id %>" aria-label="<%= aria_label %>" role="tablist">
+  <% tabs.each do |tab| %>
+    <button
+      role="tab"
+      aria-selected="<%= tab[:selected] ? "true" : "false" %>"
+      aria-controls="<%= tab[:id] %>"
+      id="<%= tab[:id] %>-tab"
+    >
+      <%= tab[:label] %>
+    </button>
+  <% end %>
+</div>

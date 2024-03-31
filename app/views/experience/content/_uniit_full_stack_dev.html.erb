@@ -1,0 +1,31 @@
+<%= render "application/timeline_item",
+  period_start: Date.new(2020, 5, 1),
+  period_end: Date.new(2021, 9, 1),
+  summary: "Full Stack Web Developer" do %>
+  <%= render "application/markdown" do %>
+    UNIIT was my first-ever full-time job and it was the best kind of first job
+    I could have asked for. I was given a lot of freedom and trust to work on
+    various projects. As a full stack web developer, I participated in the
+    development of web applications using technologies such as:
+
+    * JavaScript (ES6+)
+    * TypeScript
+    * React
+    * Node.js
+    * Express
+    * PostgreSQL
+    * Prisma ORM
+    * GraphQL
+    * Nexus
+    * Deno
+    * Fresh
+    * PocketBase
+    * etc.
+
+    As part of my daily agenda, I also conducted code reviews and mentored
+    junior developers.
+  <% end %>
+  <footer class="timeline-item-footer">
+    <%= render "experience/uniit_link" %>
+  </footer>
+<% end %>

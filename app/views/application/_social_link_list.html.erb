@@ -1,0 +1,28 @@
+<% links = local_assigns.fetch(:links, []) %>
+
+<ul class="social-link-list">
+  <% links.each do |link| %>
+    <li>
+      <%= render "application/social_link",
+        url: link[:url],
+        name: link[:icon],
+        label: link[:label]
+      %>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for_head_once "social-link-list" do %>
+  <style>
+    .social-link-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1rem 2rem;
+      list-style: none;
+      padding: 0;
+    }
+  </style>
+<% end %>

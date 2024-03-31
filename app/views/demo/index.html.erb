@@ -1,44 +1,13 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag "highlight" %>
-  <%= javascript_include_tag "tablist", type: "module" %>
-  <%= javascript_include_tag "code-highlight", type: "module" %>
-  <%= javascript_include_tag "demo-result", type: "module" %>
-<% end %>
-<% content_for :styles do %>
-  .demo {
-    display: grid;
-    gap: 1rem;
-
-  }
-
-  .demo-header {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .demo-content {
-    display: grid;
-    gap: 0;
-    position: relative;
-
-    & .copy-button {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-
-      [hidden] + & {
-        display: none;
-      }
-    }
-  }
-<% end %>
 <% content_for :page_title do %>Demos<% end %>
-<%= render "application/page_header", color: "slateblue" do %>
+<% content_for :page_description do %>Collection of demos that I use in my blog.<% end %>
+<% content_for :page_header_color do %>slateblue<% end %>
+<% content_for :page_header do %>
   <p>
     Here is the collection of demos that I use in my blog.
   </p>
   <%= render "application/back_link" %>
 <% end %>
+
 <main>
   <% @demos.each do |demo| %>
     <%= render "demo", id: demo[:id], tabs: demo[:tabs] %>

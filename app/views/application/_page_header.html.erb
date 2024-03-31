@@ -7,3 +7,23 @@
   <h1><%= yield :page_title %></h1>
   <%= yield %>
 </header>
+
+<% content_for_head_once "page-header" do %>
+  <style>
+    .page-header {
+      display: grid;
+      grid-column: full-start / full-end;
+      grid-template-columns: subgrid;
+      justify-items: flex-start;
+      gap: 1rem;
+      max-width: 100%;
+      padding-top: 20vh;
+      padding-bottom: 2rem;
+      position: relative;
+
+      & > * {
+        grid-column: main-start / main-end;
+      }
+    }
+  </style>
+<% end %>

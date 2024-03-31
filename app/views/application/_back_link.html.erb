@@ -4,3 +4,12 @@
   <%= render "icon/arrow" %>
   Back to <%= path == "/" ? "root" : path.gsub("/", "") %>
 <% end %>
+
+<% content_for_head_once "back-link" do %>
+  <style>
+    .back-link {
+      color: inherit;
+    }
+  </style>
+<% end %>
+

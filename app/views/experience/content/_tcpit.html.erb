@@ -1,0 +1,21 @@
+<%= render "application/timeline_item",
+  period_start: Date.new(2014, 9, 1),
+  period_end: Date.new(2017, 6, 1),
+  summary: "TPCIT, Professional Diploma" do %>
+  <%= render "application/markdown" do %>
+    TPCIT - Tashkent Professional College of Information Technologies was my
+    first step into the world of IT. I learned the basics of programming,
+    computer networks, and databases. To be honest, we didn't do much coding
+    there, still it was an important step for my journey into the world of web
+    development.
+  <% end %>
+  <footer class="timeline-item-footer">
+    <a
+      href="https://m.facebook.com/uztpkit"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      TPCIT on Facebook
+    </a>
+  </footer>
+<% end %>

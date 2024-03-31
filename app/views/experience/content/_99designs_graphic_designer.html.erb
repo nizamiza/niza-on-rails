@@ -1,0 +1,27 @@
+<%= render "application/timeline_item",
+  period_start: Date.new(2015, 4, 1),
+  period_end: Date.new(2020, 9, 1),
+  summary: "Graphic Designer (Freelance)" do %>
+  <%= render "application/markdown" do %>
+    I always had passion towards graphic design and art in general. When I was
+    15 years old, I started to learn design tools and attempted my first design
+    contents on various freelance platforms. At first, it didn't go that well as
+    my work wasn't of high quality. But with time and practice, I grew
+    professionally and started to earn some money. My biggest success was
+    winning several contents on 99designs.
+
+    Experience in graphic design helped me to understand the importance of
+    visual communication and user experience. It also helped me to develop a
+    good eye for detail and aesthetics. To this day, I use these skills in my
+    web development work.
+  <% end %>
+  <footer class="timeline-item-footer">
+    <a
+      href="https://99designs.com/profiles/nizamiza"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      My portfolio on 99designs
+    </a>
+  </footer>
+<% end %>

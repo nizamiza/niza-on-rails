@@ -10,3 +10,7 @@
   <%= render "icon/check" %> 
   <%= render "icon/alert" %> 
 </button>
+
+<% content_for_head_once "copy-button" do %>
+  <%= javascript_include_tag "copy-button", type: "module" %>
+<% end %>

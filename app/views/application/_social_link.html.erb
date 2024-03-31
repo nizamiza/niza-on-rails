@@ -7,3 +7,29 @@
 >
   <%= render "icon/#{name}" %>
 </a>
+
+<% content_for_head_once "social-link" do %>
+  <style>
+    .social-link {
+      --size: 2rem;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-color);
+      line-height: 0;
+      width: var(--size);
+      height: var(--size);
+      aspect-ratio: 1 / 1;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+
+      &:focus-visible {
+        outline-color: currentColor;
+        outline-offset: 6px;
+      }
+    }
+  </style>
+<% end %>

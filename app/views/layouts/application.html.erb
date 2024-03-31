@@ -1,10 +1,13 @@
+<% default_page_title = @page_title or "Niza - A Consultant, A Web Developer, And A Tech Enthusiast" %>
+<% default_page_description = @page_description or "Learn more about me and the services I provide." %>
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @page_title or "Niza's personal website" %></title>
+    <title><%= content_for?(:page_title) ? yield(:page_title) : default_page_title %></title>
     <meta
       name="description"
-      content="<%= @page_description or "Niza's personal website" %>"
+      content="<%= content_for?(:page_description) ? yield(:page_description) : default_page_description %>"
     >
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -13,13 +16,15 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <%= yield :head %>
-
-    <% if content_for?(:styles) %>
-      <style><%= yield :styles %></style>
-    <% end %>
+    <%= content_for?(:head) ? yield(:head) : "" %>
   </head>
   <body>
-    <%= content_for?(:body) ? yield(:body) : yield %>
+    <% if content_for?(:page_header) %>
+      <%= render "application/page_header", color: content_for?(:page_header_color) ? yield(:page_header_color) : nil do %>
+        <%= yield(:page_header) %>
+      <% end %>
+    <% end %>
+    <%= yield %>
+    <%= render "application/page_footer" %>
   </body>
 </html>

@@ -12,3 +12,22 @@
     </p>
   </figcaption>
 </figure>
+
+<% content_for_head_once "avatar" do %>
+  <style>
+    .avatar-img {
+      --size: 10rem;
+
+      width: var(--size);
+      height: var(--size);
+      object-fit: cover;
+    }
+
+    .avatar-figure {
+      position: relative;
+      border-radius: var(--br-full);
+      overflow: hidden;
+      order: -1;
+    }
+  </style>
+<% end %>

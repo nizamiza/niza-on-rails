@@ -1,0 +1,21 @@
+<%= render "application/timeline_item",
+  period_start: Date.new(2018, 9, 1),
+  period_end: Date.new(2021, 6, 1),
+  summary: "STU FIIT, No degree" do %>
+  <%= render "application/markdown" do %>
+    STU FIIT - Slovak University of Technology in Bratislava, Faculty of
+    Informatics and Information Technologies was my first experience of studying
+    abroad. I learned a lot about computer science, software engineering, and
+    web development. I didn't finish my studies there, but it was a great
+    experience that helped me to grow professionally and personally.
+  <% end %>
+  <footer class="timeline-item-footer">
+    <a
+      href="https://www.fiit.stuba.sk/"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      STU FIIT official website
+    </a>
+  </footer>
+<% end %>

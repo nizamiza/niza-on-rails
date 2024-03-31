@@ -14,3 +14,67 @@
     </button>
   <% end %>
 </div>
+
+<% content_for_head_once "tablist" do %>
+  <script type="module">
+    const tablists = document.querySelectorAll("[role='tablist']");
+
+    for (const list of tablists) {
+      const tabs = list.querySelectorAll("[role='tab']");
+      const tabsWithPanels = [];
+
+      for (const tab of tabs) {
+        const panel = document.querySelector(
+          `#${tab.getAttribute("aria-controls")}`
+        );
+
+        if (panel) {
+          tabsWithPanels.push([tab, panel]);
+        }
+      }
+
+      for (const [tab, tabpanel] of tabsWithPanels) {
+        tab.addEventListener("click", () => {
+          tabsWithPanels.forEach(([tab, panel]) => {
+            tab.setAttribute("aria-selected", false);
+            panel.hidden = true;
+          });
+
+          tab.setAttribute("aria-selected", true);
+          tabpanel.hidden = false;
+        });
+      }
+    }
+  </script>
+  <style>
+    [role="tablist"] {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: space-between;
+    }
+
+    [role="tab"] {
+      flex: 1;
+      border-top-left-radius: var(--br-lg);
+      border-top-right-radius: var(--br-lg);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: hsl(var(--theme-light));
+      color: var(--fg-color);
+
+      &[aria-selected="true"] {
+        background-color: var(--fg-color);
+        color: var(--bg-color);
+      }
+
+      &:hover {
+        filter: brightness(1.1);
+
+        &[aria-selected="true"] {
+          filter: brightness(0.9);
+        }
+      }
+    }
+  </style>
+<% end %>
+

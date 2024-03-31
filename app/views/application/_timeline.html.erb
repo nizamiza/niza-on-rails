@@ -1,0 +1,23 @@
+<div class="timeline">
+  <%= yield %>
+</div>
+
+<% content_for_head_once "timeline" do %>
+  <script type="module">
+    for (const timeline of document.querySelectorAll(".timeline")) {
+      const items = timeline.querySelectorAll(".timeline-item");
+
+      items.forEach((item, index) => {
+        item.toggleAttribute("data-has-line", index < items.length - 1);
+      });
+    }
+  </script>
+  <style>
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      gap: 3rem;
+    }
+  </style>
+<% end %>

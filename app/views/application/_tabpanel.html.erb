@@ -11,3 +11,23 @@
 >
   <%= yield %>
 </div>
+
+<% content_for_head_once "tabpanel" do %>
+  <style>
+    [role="tabpanel"]:not([hidden]) {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid hsl(var(--theme-light));
+      border-bottom-left-radius: var(--br-lg);
+      border-bottom-right-radius: var(--br-lg);
+      padding: 1rem;
+      position: relative;
+
+      :is([data-has-code-block="true"], &:has(code)) {
+        height: 25rem;
+        overflow: auto;
+        resize: vertical;
+      }
+    }
+  </style>
+<% end %>

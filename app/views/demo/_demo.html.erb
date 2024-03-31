@@ -25,3 +25,33 @@
   </div>
 </section>
 
+<% content_for_head_once "demo" do %>
+  <%= javascript_include_tag "demo-result", type: "module" %>
+  <style>
+    .demo {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .demo-header {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .demo-content {
+      display: grid;
+      gap: 0;
+      position: relative;
+
+      & .copy-button {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+
+        [hidden] + & {
+          display: none;
+        }
+      }
+    }
+  </style>
+<% end %>

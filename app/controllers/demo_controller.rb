@@ -1,19 +1,30 @@
 class DemoController < ApplicationController
   def index
     @default_tab_defs = [
-      ["Result", ""],
-      ["HTML", "xml"],
-      ["CSS", "css"],
-      ["JS", "javascript"]
+      get_tab_def("result"),
+      get_tab_def("html"),
+      get_tab_def("css"),
+      get_tab_def("js")
     ]
 
     @demos = [
       create_demo("text_decoration_hamburger_menu"),
       create_demo("nz_counter", [
-        ["Result", ""],
-        ["HTML", "xml"]
+        get_tab_def("result"),
+        get_tab_def("html"),
       ])
     ]
+  end
+
+  def get_tab_def(key)
+    case key
+    when "result" then ["Result", ""]
+    when "html" then ["HTML", "xml"]
+    when "css" then ["CSS", "css"]
+    when "js" then ["JS", "javascript"]
+    else
+      raise "Unknown tab definition key: #{key}"
+    end
   end
 
   def create_tab(id, label, selected = false)

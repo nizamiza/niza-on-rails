@@ -1,33 +1,13 @@
-<% content_for :styles do %>
-  .social-link-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 1rem 2rem;
-    list-style: none;
-    padding: 0;
-  }
-<% end %>
 <% content_for :page_title do %>Hi, I'm Niza!<% end %>
-<%= render "application/page_header", color: "orange" do %>
+<% content_for :page_description do %>Welcome to my page. I'm a web developer and I enjoy creating things.<% end %>
+<% content_for :page_header_color do %>orange<% end %>
+<% content_for :page_header do %>
   <%= render "avatar" %>
   <p>
     Welcome to my page. Currently I'm working as a web developer. I enjoy
     creating things and in my free time I like to compose music.
   </p>
-  <ul class="social-link-list">
-    <% @social_links.each do |link| %>
-      <li>
-        <%= render "application/social_link",
-          url: link[:url],
-          name: link[:icon],
-          label: link[:label]
-        %>
-      </li>
-    <% end %>
-  </ul>
+  <%= render "application/social_link_list", links: @social_links %>
 <% end %>
 <main>
   <section class="section">
@@ -52,9 +32,6 @@
       If you want to learn more about my work experience, you can check out
       the timeline here.
     </p>
-    <a href="/experience.html">Experience</a>
+    <%= link_to "Experience", "experience" %>
   </section class="section">
 </main>
-
-<%= render "application/page_footer" %>
-

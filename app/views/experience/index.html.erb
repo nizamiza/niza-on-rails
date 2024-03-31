@@ -1,0 +1,24 @@
+<% content_for :page_title do %>Experience<% end %>
+<% content_for :page_description do %>My experience as a professional, and my past education.<% end %>
+<% content_for :page_header_color do %>teal<% end %>
+<% content_for :page_header do %>
+  <p>Here you can find a timeline of my work and education experience.</p>
+  <%= render "application/back_link" %>
+<% end %>
+<main>
+  <section class="section">
+    <h2>Work</h2>
+    <%= render "application/timeline" do %>
+      <%= render "experience/content/uniit_cto" %>
+      <%= render "experience/content/uniit_full_stack_dev" %>
+      <%= render "experience/content/99designs_graphic_designer" %>
+    <% end %>
+  </section>
+  <section class="section">
+    <h2>Education</h2>
+    <%= render "application/timeline" do %>
+      <%= render "experience/content/stu_fiit" %>
+      <%= render "experience/content/tcpit" %>
+    <% end %>
+  </section>
+</main>

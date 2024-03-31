@@ -1,0 +1,125 @@
+<% summary = local_assigns.fetch(:summary) %>
+<% period_start = local_assigns.fetch(:period_start) %>
+<% period_end = local_assigns.fetch(:period_end, nil) %>
+<% formatted_period_start = period_start.strftime("%b %Y") %>
+<% formatted_period_end = period_end ? period_end.strftime("%b %Y") : "Present" %>
+<% duration = period_end ? period_end - period_start : Time.now - period_start %>
+<% duration_in_words = distance_of_time_in_words(period_start, period_end, scope: "datetime.distance_in_words" %>
+
+<details class="timeline-item">
+  <summary class="timeline-item-summary">
+    <h3><%= summary %></h3>
+    <p class="period">
+      <%= formatted_period_start %> - <%= formatted_period_end %>
+      <time datetime="<%= duration %>">
+        <%= duration_in_words %>
+      </time>
+    </p>
+  </summary>
+  <div class="timeline-item-content">
+    <%= yield %>
+  </div>
+</details>
+
+<% content_for_head_once "timeline-item" do %>
+  <style>
+    .timeline-item {
+      --gap: 1.5rem;
+      --padding: 1rem;
+      --active-bg: hsl(var(--theme-light) / 0.3);
+      --indicator-size: 1rem;
+
+      border-radius: var(--br-lg);
+      container-type: inline-size;
+
+      &[open] {
+        background-color: var(--active-bg);
+
+        & > .timeline-item-summary {
+          &::before {
+            background-color: currentColor;
+          }
+        }
+      }
+
+      &[data-has-line]:not([open]) > .timeline-item-summary::after {
+        content: "";
+        grid-area: indicator;
+        width: 2px;
+        height: calc(100% + 3rem);
+        justify-self: center;
+        background-image: linear-gradient(
+          to bottom,
+          currentColor,
+          transparent
+        );
+        translate: 0 calc(var(--padding) + var(--indicator-size));
+      }
+    }
+
+    .timeline-item-summary {
+      display: grid;
+      gap: 0.5rem 1rem;
+      grid:
+        "......... period period"
+        "indicator title  title" / var(--indicator-size) 1fr 1fr;
+      align-items: flex-start;
+      list-style: none;
+      padding: var(--padding);
+      border-radius: var(--br-lg);
+      transition: background-color var(--td-fast) ease-in-out;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        grid-area: indicator;
+        width: var(--indicator-size);
+        height: var(--indicator-size);
+        border-radius: var(--br-full);
+        border: 2px solid currentColor;
+        margin-top: 0.5lh;
+        transition: background-color var(--td-normal) ease-in-out;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--active-bg);
+      }
+
+      & > .period {
+        grid-area: period;
+        font-size: var(--fs-caption);
+        font-family: var(--ff-mono);
+        display: inline-flex;
+        flex-direction: column;
+      }
+
+      & > * {
+        grid-area: title;
+      }
+
+      @container (min-width: 40rem) {
+        grid: "period indicator title" / 16ch var(--indicator-size) 1fr;
+        gap: 1rem;
+
+        & > .period {
+          margin-top: 0.5lh;
+          text-align: right;
+        }
+      }
+    }
+
+    .timeline-item-content {
+      padding: var(--padding);
+    }
+
+    .timeline-item-footer {
+      padding-block: 1rem;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-caption);
+    }
+  </style>
+<% end %>

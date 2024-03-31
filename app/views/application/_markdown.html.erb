@@ -1,0 +1,15 @@
+<article class="markdown">
+  <%= render_markdown do %>
+    <%= yield %>
+  <% end %>
+</article>
+
+<% content_for_head_once "markdown" do %>
+  <style>
+    .markdown {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  </style>
+<% end %>

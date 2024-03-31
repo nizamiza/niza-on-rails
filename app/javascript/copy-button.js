@@ -1,30 +1,15 @@
-function toggleAriaHidden(element, force) {
-  element.setAttribute("aria-hidden", force ? "true" : "false");
-}
+import { querySelectIcons } from "utils";
 
-function setIconToggleTimeout(iconToShow, timeout, ...iconsToHide) {
-  setTimeout(() => {
-    toggleAriaHidden(iconToShow, false);
-
-    for (const icon of iconsToHide) {
-      toggleAriaHidden(icon, true);
-    }
-  }, timeout);
-}
-
-export function initCopyButtons() {
+function initCopyButtons() {
   for (const button of document.querySelectorAll(".copy-button")) {
-    const alertIcon = button.querySelector(".icon-alert");
-    const checkIcon = button.querySelector(".icon-check");
-    const clipboardIcon = button.querySelector(".icon-clipboard");
+    const icons = querySelectIcons(button);
 
-    if (!alertIcon || !checkIcon || !clipboardIcon) {
+    if (!Object.keys(icons).length) {
       console.error("Could not find some icons.");
       continue;
     }
 
-    toggleAriaHidden(alertIcon, true);
-    toggleAriaHidden(checkIcon, true);
+    toggleAriaHidden(true, icons.alert, icons.check);
 
     button.addEventListener("click", async function () {
       let copyText = this.dataset.text?.trim();
@@ -42,25 +27,29 @@ export function initCopyButtons() {
 
       try {
         await navigator.clipboard.writeText(copyText);
-
-        toggleAriaHidden(checkIcon, false);
-        toggleAriaHidden(clipboardIcon, true);
-
-        setTimeout(() => {
-          toggleAriaHidden(checkIcon, true);
-          toggleAriaHidden(clipboardIcon, false);
-        }, 3000);
-
-        setIconToggleTimeout(clipboardIcon, 3000, checkIcon);
+        setAriaHiddenToggleTimeout(icons.clipboard, icons.check);
       } catch (error) {
         console.error(error);
-
-        toggleAriaHidden(alertIcon, false);
-        toggleAriaHidden(checkIcon, true);
-        toggleAriaHidden(clipboardIcon, true);
-
-        setIconToggleTimeout(clipboardIcon, 3000, alertIcon);
+        setAriaHiddenToggleTimeout(icons.clipboard, icons.alert);
       }
     });
   }
 }
+
+function toggleAriaHidden(force, ...elements) {
+  for (const element of elements) {
+    element.setAttribute("aria-hidden", force ? "true" : "false");
+  }
+}
+
+function setAriaHiddenToggleTimeout(elementToShow, ...elementsToHide) {
+  toggleAriaHidden(true, elementToShow);
+  toggleAriaHidden(false, ...elementsToHide);
+
+  setTimeout(() => {
+    toggleAriaHidden(false, elementToShow);
+    toggleAriaHidden(true, ...elementsToHide);
+  }, 3000);
+}
+
+initCopyButtons();

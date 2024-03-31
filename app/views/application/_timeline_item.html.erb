@@ -4,7 +4,7 @@
 <% formatted_period_start = period_start.strftime("%b %Y") %>
 <% formatted_period_end = period_end ? period_end.strftime("%b %Y") : "Present" %>
 <% duration = period_end ? period_end - period_start : Time.now - period_start %>
-<% duration_in_words = distance_of_time_in_words(period_start, period_end, scope: "datetime.distance_in_words" %>
+<% duration_in_words = distance_of_time_in_words(period_start, period_end) %>
 
 <details class="timeline-item">
   <summary class="timeline-item-summary">

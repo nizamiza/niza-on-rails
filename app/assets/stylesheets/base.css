@@ -77,6 +77,10 @@ html {
   color-scheme: var(--color-scheme);
 }
 
+code, pre {
+  font-family: var(--ff-mono);
+}
+
 a {
   --thickness: 0.125em;
 

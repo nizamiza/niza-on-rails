@@ -90,6 +90,7 @@ body {
   --backdrop-filter: blur(2rem);
   --bg-color: 30 30 30;
   --fg-color: white;
+  --fg-color-inverse: black;
   --bg-opacity: 0.72;
   --bg: rgb(var(--bg-color) / var(--bg-opacity));
   --py: 1em;
@@ -99,7 +100,8 @@ body {
 
   position: sticky;
   bottom: 1.5rem;
-  margin-inline: auto;
+  justify-self: center;
+  max-width: 100%;
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -114,16 +116,18 @@ body {
 
   & > :is(ul, .locale-change-button) {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
   }
 
   & > ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow-x: auto;
     gap: calc(var(--gap) / 2) var(--gap);
 
     & a {
@@ -131,11 +135,27 @@ body {
       text-decoration: none;
       line-height: 1.5;
     }
+
+    &::after {
+      content: "";
+      position: sticky;
+      right: 0;
+      height: 100%;
+      width: 2px;
+      color: transparent;
+      border-radius: var(--br-full);
+      background-color: color-mix(
+        in srgb,
+        var(--fg-color),
+        var(--fg-color-inverse) 30%
+      );
+    }
   }
 
   @media (prefers-color-scheme: dark) {
     --bg-color: 220 220 220;
     --fg-color: black;
+    --fg-color-inverse: white;
 
     font-weight: 500;
   }

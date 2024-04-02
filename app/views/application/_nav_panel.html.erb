@@ -2,7 +2,7 @@
 <% dialog_id = "locale-change-dialog" %>
 
 <nav class="nav-panel">
-  <ul>
+  <ul class="custom-scrollbar">
     <% paths.each do |path| %>
       <li>
         <%= link_to t("route.#{path}"), localize_path(path: path) %>

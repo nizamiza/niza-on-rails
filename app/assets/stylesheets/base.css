@@ -44,6 +44,16 @@
   --fs-note: 0.75rem;
 
   --content-width: 69ch;
+
+  font-size: 1rem;
+
+  @media (min-width: 48rem) {
+    font-size: 1.025rem;
+  }
+
+  @media (min-width: 80rem) {
+    font-size: 1.125rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -225,6 +235,29 @@ h6,
     --backdrop-bg-opacity: 0.8;
 
     font-weight: 500;
+  }
+}
+
+.custom-scrollbar {
+  --scrollbar-height: 0.325rem;
+  --scrollbar-width: 0.5rem;
+  --scrollbar-color: color-mix(in srgb, currentColor, transparent 80%);
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
+
+  &::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-height);
+    border-radius: var(--br-full);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 }
 

@@ -1,0 +1,33 @@
+---
+en:
+  route:
+    home: "Home"
+    demo: "Demos"
+    experience: "Experience"
+  locale:
+    en: "English"
+    sk: "Slovak"
+    change: "Change language"
+  back_to: "Back to %{path}"
+  copy_to_clipboard: "Copy to clipboard"
+  avatar_alt: "Photo of Niza"
+  tablist:
+    default_label: "Tabs"
+  home:
+    title: "Home"
+  social:
+    github: "Check out my GitHub profile"
+    linkedin: "Check out my LinkedIn profile"
+    spotify: "Check out my Spotify profile"
+    youtube: "Check out my YouTube channel"
+  experience:
+    work:
+      title: "Work"
+      99designs:
+        profile: "My 99designs profile"
+    education:
+      title: "Education"
+      stu_fiit:
+        website: "STU FIIT website"
+      tpcit:
+        website: "TPCIT on Facebook"

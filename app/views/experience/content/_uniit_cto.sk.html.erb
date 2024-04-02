@@ -1,0 +1,25 @@
+
+<%= render "application/timeline_item",
+  period_start: Date.new(2021, 9, 1),
+  period_end: Date.new(2024, 4, 1),
+  summary: "CTO, Riaditeľ HR" do %>
+  <%= render "application/markdown" do %>
+    Moja najväčšia profesionálna skúsenosť doteraz bola vedenie technologického
+    a HR oddelení UNIIT. Na tejto hybridnej pozícii som sa veľa naučil o vedení,
+    manažmente a podnikaní. Bol som zodpovedný za nasledovné:
+
+    * Nastavenie a udržiavanie IT infraštruktúry spoločnosti
+    * Vývoj a implementáciu IT politík a najlepších postupov
+    * Návrh a realizáciu technických pohovorov
+    * Návrh a realizáciu hodnotení výkonnosti
+
+    Pokračoval som v práci ako full stack web developer a bol som zapojený do
+    vývoja rôznych projektov. Robil som code reviews a mentoroval junior
+    vývojárov.
+
+    Keď som bol povýšený na pozíciu CTO, musel som sa naučiť viac o
+    infraštruktúre, bezpečnosti, monitorovaní a DevOps. Vďaka tejto skúsenosti
+    som sa naučil o dôležitosti komunikácie a tímovej práce.
+  <% end %>
+  <%= render "experience/footer/uniit" %>
+<% end %>

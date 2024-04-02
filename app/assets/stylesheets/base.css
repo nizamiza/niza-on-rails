@@ -77,7 +77,8 @@ html {
   color-scheme: var(--color-scheme);
 }
 
-code, pre {
+code,
+pre {
   font-family: var(--ff-mono);
 }
 
@@ -182,6 +183,48 @@ h6,
 
   h6 {
     font-size: 1.25rem;
+  }
+}
+
+*:not(.no-default-focus):focus-visible {
+  --backdrop-filter: blur(0.25rem);
+  --text-color: hsl(var(--theme-white));
+  --backdrop-bg-base: var(--theme-black);
+  --backdrop-bg-opacity: 1;
+  --backdrop-bg: hsl(var(--backdrop-bg-base) / var(--backdrop-bg-opacity));
+  --backdrop-br: var(--br-md);
+  --backdrop-offset-base: 0.125em;
+  --backdrop-offset-block-factor: 1;
+  --backdrop-offset-inline-factor: 4;
+  --backdrop-inset: calc(
+      var(--backdrop-offset-base) * var(--backdrop-offset-block-factor) * -1
+    )
+    calc(
+      var(--backdrop-offset-base) * var(--backdrop-offset-inline-factor) * -1
+    );
+
+  outline: none;
+  position: relative;
+  color: var(--text-color) !important;
+  z-index: 99;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: var(--backdrop-inset);
+    border-radius: var(--backdrop-br);
+    background-color: var(--backdrop-bg);
+    z-index: -1;
+    backdrop-filter: var(--backdrop-filter);
+    -webkit-backdrop-filter: var(--backdrop-filter);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --text-color: hsl(var(--theme-black));
+    --backdrop-bg-base: var(--theme-white);
+    --backdrop-bg-opacity: 0.8;
+
+    font-weight: 500;
   }
 }
 

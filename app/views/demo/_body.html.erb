@@ -1,0 +1,5 @@
+<main>
+  <% @demos.each do |demo| %>
+    <%= render "demo", id: demo[:id], tabs: demo[:tabs] %>
+  <% end %>
+</main>

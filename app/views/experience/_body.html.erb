@@ -1,0 +1,17 @@
+<main>
+  <section class="section stretch">
+    <h2><%= t "experience.work.title" %></h2>
+    <%= render "application/timeline" do %>
+      <%= render "experience/content/uniit_cto" %>
+      <%= render "experience/content/uniit_dev" %>
+      <%= render "experience/content/99designs" %>
+    <% end %>
+  </section>
+  <section class="section stretch">
+    <h2><%= t "experience.education.title" %></h2>
+    <%= render "application/timeline" do %>
+      <%= render "experience/content/stu_fiit" %>
+      <%= render "experience/content/tpcit" %>
+    <% end %>
+  </section>
+</main>

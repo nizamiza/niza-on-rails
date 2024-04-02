@@ -7,7 +7,7 @@
 <% duration_in_words = distance_of_time_in_words(period_start, period_end) %>
 
 <details class="timeline-item">
-  <summary class="timeline-item-summary">
+  <summary class="timeline-item-summary no-default-focus">
     <h3><%= summary %></h3>
     <p class="period">
       <%= formatted_period_start %> - <%= formatted_period_end %>
@@ -87,6 +87,11 @@
       &:hover {
         cursor: pointer;
         background-color: var(--active-bg);
+      }
+
+      &:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 2px currentColor;
       }
 
       & > .period {

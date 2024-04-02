@@ -1,1 +1,5 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import { initCopyButtons } from "copy-button";
+import { initDialogs } from "dialog";
+
+initDialogs();
+initCopyButtons();

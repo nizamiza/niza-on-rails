@@ -1,0 +1,37 @@
+<% content_for :page_title do %>Ahoj, som Niza!<% end %>
+<% content_for :page_description do %>Vitajte na mojej stránke. Som web developer a rád tvorím veci.<% end %>
+<% content_for :page_header_color do %>orange<% end %>
+<% content_for :page_header do %>
+  <%= render "avatar" %>
+  <p>
+    Vitajte na mojej stránke. Momentálne pracujem ako web developer. Rád
+    tvorím veci a vo voľnom čase sa venujem skladaniu hudby.
+  </p>
+  <%= render "application/social_link_list", links: @social_links %>
+<% end %>
+<main>
+  <section class="section">
+    <h2>Blog</h2>
+    <p>
+      Mám blog na <a href="https://world.hey.com/niza">HEY World</a>. Pravidelne
+      tam pridávam články o mojej práci a záujmoch. Pozrite sa, ak vás to
+      zaujíma.
+    </p>
+  </section class="section">
+  <section class="section">
+    <h2>Ukážky</h2>
+    <p>
+      Začal som zbierať demá k mojim blogovým článkom aj sem. Môžete si ich
+      pozrieť, ak vás to zaujíma.
+    </p>
+    <%= link_to "Ukážky", "demo" %>
+  </section class="section">
+  <section class="section">
+    <h2>Skúsenosti</h2>
+    <p>
+      Ak chcete vedieť viac o mojich pracovných skúsenostiach, môžete si
+      pozrieť časovú os tu.
+    </p>
+    <%= link_to "Skúsenosti", "experience" %>
+  </section class="section">
+</main>

@@ -1,18 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import "reset.css" layer(reset);
 @import "base.css" layer(base);
 
@@ -101,8 +86,104 @@ body {
   margin-top: max(auto, 4rem);
 }
 
+.nav-panel {
+  --backdrop-filter: blur(2rem);
+  --bg-color: 30 30 30;
+  --fg-color: white;
+  --bg-opacity: 0.72;
+  --bg: rgb(var(--bg-color) / var(--bg-opacity));
+  --py: 1em;
+  --px: calc(var(--py) * 2);
+  --gap: 1.25em;
+  --font-size: 0.875rem;
+
+  position: sticky;
+  bottom: 1.5rem;
+  margin-inline: auto;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  color: var(--fg-color);
+  font-size: var(--font-size);
+  padding: var(--py) var(--px);
+  gap: var(--gap);
+  border-radius: var(--br-full);
+  background-color: var(--bg);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+
+  & > :is(ul, .locale-change-button) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: calc(var(--gap) / 2) var(--gap);
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --bg-color: 220 220 220;
+    --fg-color: black;
+
+    font-weight: 500;
+  }
+
+  @media (min-width: 768px) {
+    --font-size: 1rem;
+  }
+}
+
+.locale-change-button {
+  background-color: transparent;
+  padding: 0.125rem;
+}
+
+.locale-change-dialog[open] {
+  position: absolute;
+  display: flex;
+  bottom: calc(100% + 0.75rem);
+  left: 100%;
+  translate: -100%;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  border-radius: var(--br-lg);
+  background-color: rgb(92 92 92);
+  color: var(--fg-color);
+
+  & > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+      width: 100%;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgb(163 163 163);
+  }
+}
+
 .noise {
   --base-color: hsl(var(--theme-accent));
+  --end-color: color-mix(in srgb, var(--base-color), var(--bg-color) 70%);
 
   &::before {
     content: "";
@@ -110,8 +191,9 @@ body {
     inset: 0;
     z-index: -1;
     background-image: linear-gradient(
+      in oklab,
       var(--base-color),
-      hsl(var(--theme-light) / 0.4)
+      color-mix(in oklab, var(--end-color), transparent 60%)
     );
   }
 
@@ -122,6 +204,7 @@ body {
     z-index: -2;
     background-image: url("noise.svg");
     background-repeat: repeat;
+    background-size: 28rem;
   }
 }
 
@@ -148,4 +231,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  align-items: flex-start;
+
+  &.stretch {
+    align-items: stretch;
+  }
 }

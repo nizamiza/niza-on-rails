@@ -1,5 +1,5 @@
 <% id = local_assigns.fetch(:id) %>
-<% aria_label = local_assigns.fetch(:aria_label, "Tabs") %>
+<% aria_label = local_assigns.fetch(:aria_label, t("tablist.default_label")) %>
 <% tabs = local_assigns.fetch(:tabs, []) %>
 
 <div id="<%= id %>" aria-label="<%= aria_label %>" role="tablist">
@@ -18,28 +18,28 @@
 <% content_for_head_once "tablist" do %>
   <script type="module">
     const tablists = document.querySelectorAll("[role='tablist']");
-
+    
     for (const list of tablists) {
       const tabs = list.querySelectorAll("[role='tab']");
       const tabsWithPanels = [];
-
+    
       for (const tab of tabs) {
         const panel = document.querySelector(
-          `#${tab.getAttribute("aria-controls")}`
+          `#${tab.getAttribute("aria-controls")}`,
         );
-
+    
         if (panel) {
           tabsWithPanels.push([tab, panel]);
         }
       }
-
+    
       for (const [tab, tabpanel] of tabsWithPanels) {
         tab.addEventListener("click", () => {
           tabsWithPanels.forEach(([tab, panel]) => {
             tab.setAttribute("aria-selected", false);
             panel.hidden = true;
           });
-
+    
           tab.setAttribute("aria-selected", true);
           tabpanel.hidden = false;
         });

@@ -3,7 +3,7 @@
   period_end: Date.new(2024, 4, 1),
   summary: "CTO, Head of HR" do %>
   <%= render "application/markdown" do %>
-    My greatest professional experience so far has been leading UNIIT's
+    My greatest professional experience so far, has been leading UNIIT's
     technology and HR departments. At this hybrid position, I learned a lot
     about leadership, management, and business. I was responsible for the
     following:
@@ -13,24 +13,13 @@
     * Designing and conducting technical interviews
     * Designing and conducting performance evaluations
 
-    I continued to work as a full stack web developer and was involved in the
+    I continued to work as a full stack web developer and I was involved in the
     development of various projects. I conducted code reviews and mentored
     junior developers.
 
     As I was promoted to the CTO position, I had to learn more about
-    infrastructure, security, monitoring, and DevOps. Specifically,
-    I learned about:
-
-    * [Space Automation Jobs](https://www.jetbrains.com/help/space/automation.html)
-    * AWS & GCP
-    * Docker & Kubernetes
-    * Sentry
-    * BugSnag
-
-    Thanks to this experience, I learned about the importance of communication
-    and teamwork.
+    infrastructure, security, monitoring, and DevOps. Thanks to this experience,
+    I learned about the importance of communication and teamwork.
   <% end %>
-  <footer class="timeline-item-footer">
-    <%= render "experience/uniit_link" %>
-  </footer>
+  <%= render "experience/footer/uniit" %>
 <% end %>

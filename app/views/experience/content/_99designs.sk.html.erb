@@ -1,0 +1,19 @@
+
+<%= render "application/timeline_item",
+  period_start: Date.new(2015, 4, 1),
+  period_end: Date.new(2020, 9, 1),
+  summary: "Grafický dizajnér (Freelancer)" do %>
+  <%= render "application/markdown" do %>
+    Som vždy mal vášeň pre grafický dizajn a umenie všeobecne. Keď som mal 15
+    rokov, začal som sa učiť nástroje na dizajn a pokúšal som sa o svoje prvé
+    dizajnové práce na rôznych platformách freelance. Na začiatku to nešlo 
+    dobre, pretože moja práca nebola veľmi kvalitná. Ale s časom a cvičením
+    som sa profesionálne rozvíjal a začal som zarábať nejaké peniaze. Mojím
+    najväčším úspechom bolo víťazstvo v niekoľkých súťažiach na 99designs.
+
+    Skúsenosti v grafickom dizajne mi pomohli pochopiť dôležitosť vizuálnej
+    komunikácie a používateľského zážitku. Tiež mi pomohli rozvinúť dobré oko
+    pre detail a estetiku. Dodnes tieto zručnosti využívam vo svojej práci.
+  <% end %>
+  <%= render "experience/footer/99designs" %>
+<% end %>

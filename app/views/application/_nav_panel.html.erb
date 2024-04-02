@@ -1,0 +1,38 @@
+<% paths = ["home", "demo", "experience"] %>
+<% dialog_id = "locale-change-dialog" %>
+
+<nav class="nav-panel">
+  <ul>
+    <% paths.each do |path| %>
+      <li>
+        <%= link_to t("route.#{path}"), localize_path(path: path) %>
+      </li>
+    <% end %>
+  </ul>
+  <button
+    type="button"
+    class="locale-change-button"
+    aria-label="<%= t "locale.change" %>"
+    aria-controls="<%= dialog_id %>"
+    aria-expanded="false"
+    onclick='
+      const dialog = document.getElementById("<%= dialog_id %>");
+      const isOpen = dialog.open;
+      
+      dialog[isOpen ? "close" : "show"]();
+      this.setAttribute("aria-expanded", !isOpen);
+    '
+  >
+    <%= render "icon/globe" %>
+  </button>
+  <dialog id="<%= dialog_id %>" class="locale-change-dialog">
+    <h2 class="sr-only"><%= t "locale.change" %></h2>
+    <ul>
+      <% I18n.available_locales.each do |locale| %>
+        <li>
+          <%= link_to t("locale.#{locale}"), localize_path(locale: locale) %>
+        </li>
+      <% end %>
+    </ul>
+  </dialog>
+</nav>

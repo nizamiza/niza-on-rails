@@ -27,9 +27,26 @@ module ApplicationHelper
 
   def strip_indent(content)
     # Find the common leading whitespace in the content
-    indentation = content.scan(/^[ \t]+/).min_by(&:length)
+    indentation = content.scan(/^[ 	]+/).min_by(&:length)
 
     # Remove the common leading whitespace from each line
-    content.gsub(/^#{indentation}/, '')
+    content.gsub(/^#{indentation}/, "")
+  end
+
+  def localize_path(path: request.path, locale: I18n.locale)
+    is_default_locale = locale == I18n.default_locale
+
+    delocalized_path = path.gsub(
+      /^\/(#{I18n.available_locales.join("|")})\/?/, "/"
+    )
+
+    resolved_path = delocalized_path == "home" ? "/" : delocalized_path
+    final_path = resolved_path.start_with?("/") ? resolved_path : "/#{resolved_path}"
+
+    if is_default_locale
+      final_path
+    else
+      "/#{locale}#{final_path}"
+    end
   end
 end

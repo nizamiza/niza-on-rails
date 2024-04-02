@@ -1,0 +1,29 @@
+<%= render "application/timeline_item",
+  period_start: Date.new(2020, 5, 1),
+  period_end: Date.new(2021, 9, 1),
+  summary: "Full Stack Web Developer" do %>
+  <%= render "application/markdown" do %>
+    UNIIT bola moja prvá práca a bola to najlepšia prvá práca, akú som si mohol
+    želať. Dostal som veľa slobody a dôvery na prácu na rôznych projektoch.
+    Ako full stack web developer som sa zúčastnil na vývoji webových aplikácií
+    s použitím technológií ako:
+
+    * JavaScript (ES6+)
+    * TypeScript
+    * React
+    * Node.js
+    * Express
+    * PostgreSQL
+    * Prisma ORM
+    * GraphQL
+    * Nexus
+    * Deno
+    * Fresh
+    * PocketBase
+    * atď.
+
+    Ako súčasť mojej dennodennej agendy som tiež vykonával code reviewe a
+    mentoroval junior developerov.
+  <% end %>
+  <%= render "experience/footer/uniit" %>
+<% end %>

@@ -1,0 +1,17 @@
+
+<%= render "application/timeline_item",
+  period_start: Date.new(2018, 9, 1),
+  period_end: Date.new(2021, 6, 1),
+  summary: "STU FIIT, Nedokončené" do %>
+  <%= render "application/markdown" do %>
+    STU FIIT - Slovenská Technická Univerzita v Bratislave, Fakulta Informatiky
+    a Informačných Technológií bola mojou prvou skúsenosťou s štúdiom v
+    zahraničí. Veľa som sa naučil o informatike, softvérovom inžinierstve a
+    vývoji webových aplikácií. Štúdium som tam nedokončil, ale bola to skvelá
+    skúsenosť, ktorá mi pomohla v profesionálnom a osobnom raste.
+
+    FIIT, najmä v prvých rokoch, pôsobila ako Hogwarts, ale pre informatiku.
+    Atmosféra a učitelia boli neuveriteľní.
+  <% end %>
+  <%= render "experience/footer/stu_fiit" %>
+<% end %>

@@ -1,7 +1,5 @@
 const demoResultTabpanels = Array.from(
-  document.querySelectorAll(
-    `[role="tabpanel"][id$="-result"]`
-  )
+  document.querySelectorAll(`[role="tabpanel"][id$="-result"]`)
 );
 
 function resolveCodeBlockTag(lang) {
@@ -27,7 +25,7 @@ function initDemoResultTabpanels() {
     }
 
     panel.innerHTML = "<p>Loading...</p>";
-   
+
     const demoId = panel.id.replace("-result", "");
     const otherPanels = panel.parentElement.querySelectorAll(
       `[role="tabpanel"][id^="${demoId}"]:not([id$="-result"])`
@@ -41,7 +39,8 @@ function initDemoResultTabpanels() {
 
       const element = document.createElement(tag);
 
-      const code = otherPanel.querySelector("[data-content]")?.dataset.content || "";
+      const code =
+        otherPanel.querySelector("[data-content]")?.dataset.content || "";
 
       element.innerHTML = code;
       codeBlocks.push(element);

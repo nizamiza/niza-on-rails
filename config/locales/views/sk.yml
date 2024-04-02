@@ -1,0 +1,33 @@
+---
+sk:
+  route:
+    home: "Domov"
+    demo: "Ukážky"
+    experience: "Skúsenosti"
+  locale:
+    en: "Angličtina"
+    sk: "Slovenčina"
+    change: "Zmeniť jazyk"
+  back_to: "Späť %{path}"
+  copy_to_clipboard: "Kopírovať do schránky"
+  avatar_alt: "Foto Nizu"
+  tablist:
+    default_label: "Karty"
+  home:
+    title: "Domov"
+  social:
+    github: "Môj profil na GitHub"
+    linkedin: "Môj profil na LinkedIn"
+    spotify: "Môj profil na Spotify"
+    youtube: "Môj kanál na YouTube"
+  experience:
+    work:
+      title: "Práca"
+      99designs:
+        profile: "Môj profil na 99designs"
+    education:
+      title: "Vzdelanie"
+      stu_fiit:
+        website: "Webstránka STU FIIT"
+      tpcit:
+        website: "TPCIT na Facebooku"

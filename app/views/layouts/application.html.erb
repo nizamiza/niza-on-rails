@@ -2,20 +2,42 @@
 <% default_page_description = @page_description or "Learn more about me and the services I provide." %>
 
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+
     <title><%= content_for?(:page_title) ? yield(:page_title) : default_page_title %></title>
+    <meta name="author" content="Niza Toshpulatov" />
     <meta
       name="description"
-      content="<%= content_for?(:page_description) ? yield(:page_description) : default_page_description %>"
-    >
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+      content="<%= content_for?(:page_description) ? yield(:page_description) : default_page_description %>">
+
+    <meta
+      name="theme-color"
+      content="color(srgb 0.1599 0.1851 0.24)"
+      media="(prefers-color-scheme: dark)">
+    <meta
+      name="theme-color"
+      content="color(srgb 0.9882 0.9882 0.9882)"
+      media="(prefers-color-scheme: light)">
+
+    <meta name="canonical" content="<%= request.original_url %>">
+    <% I18n.available_locales.each do |locale| %>
+      <link
+        rel="alternate"
+        hreflang="<%= locale %>"
+        href="<%= url_for(locale: locale) %>">
+    <% end %>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <%= content_for?(:head) ? yield(:head) : "" %>
@@ -28,5 +50,6 @@
     <% end %>
     <%= yield %>
     <%= render "application/page_footer" %>
+    <%= render "application/nav_panel" %>
   </body>
 </html>

@@ -1,6 +1,6 @@
 import { querySelectIcons } from "utils";
 
-function initCopyButtons() {
+export function initCopyButtons() {
   for (const button of document.querySelectorAll(".copy-button")) {
     const icons = querySelectIcons(button);
 
@@ -18,7 +18,8 @@ function initCopyButtons() {
 
       if (selector) {
         const target = document.querySelector(selector);
-        copyText = target?.dataset.content?.trim() || target?.textContent?.trim();
+        copyText =
+          target?.dataset.content?.trim() || target?.textContent?.trim();
       }
 
       if (!copyText) {
@@ -51,5 +52,3 @@ function setAriaHiddenToggleTimeout(elementToShow, ...elementsToHide) {
     toggleAriaHidden(true, ...elementsToHide);
   }, 3000);
 }
-
-initCopyButtons();

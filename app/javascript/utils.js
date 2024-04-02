@@ -12,4 +12,4 @@ export function querySelectIcons(element) {
   });
 
   return icons;
-}    
+}

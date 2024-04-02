@@ -1,0 +1,15 @@
+
+<%= render "application/timeline_item",
+  period_start: Date.new(2014, 9, 1),
+  period_end: Date.new(2017, 6, 1),
+  summary: "TPCIT, S maturitou" do %>
+  <%= render "application/markdown" do %>
+    TPCIT - Taschkentské Profesionálne Učilište Informačných Technológií bolo
+    mojím prvým krokom do sveta IT. Učil som sa základy programovania,
+    počítačových sietí a databáz.
+
+    Úprimne povedané, veľa programovania sme tam nerobili, no bol to dôležitý
+    krok na mojej ceste do sveta softvérového vývoja.
+  <% end %>
+  <%= render "experience/footer/tpcit" %>
+<% end %>

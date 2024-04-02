@@ -4,7 +4,7 @@ class DemoController < ApplicationController
       get_tab_def("result"),
       get_tab_def("html"),
       get_tab_def("css"),
-      get_tab_def("js")
+      get_tab_def("js"),
     ]
 
     @demos = [
@@ -12,7 +12,7 @@ class DemoController < ApplicationController
       create_demo("nz_counter", [
         get_tab_def("result"),
         get_tab_def("html"),
-      ])
+      ]),
     ]
   end
 
@@ -38,18 +38,18 @@ class DemoController < ApplicationController
       label: label_text,
       lang: lang,
       key: downcased_label,
-      selected: selected
+      selected: selected,
     }
   end
 
   def create_demo(id, tab_defs = nil)
     tab_defs ||= @default_tab_defs
 
-    { 
+    {
       id: id,
       tabs: tab_defs.map.with_index { |label, index|
         create_tab(id, label, index == 0)
-      }
+      },
     }
   end
 end

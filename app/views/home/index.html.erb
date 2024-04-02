@@ -1,11 +1,17 @@
 <% content_for :page_title do %>Hi, I'm Niza!<% end %>
-<% content_for :page_description do %>Welcome to my page. I'm a web developer and I enjoy creating things.<% end %>
+<% content_for :page_description do %>Productivity workflows evangelist, consultant, and web dev basics teacher.<% end %>
 <% content_for :page_header_color do %>orange<% end %>
 <% content_for :page_header do %>
   <%= render "avatar" %>
   <p>
-    Welcome to my page. Currently I'm working as a web developer. I enjoy
-    creating things and in my free time I like to compose music.
+    I'm a productivity workflows evangelist, consultant, and web dev basics
+    teacher. I'm passionate about helping people be more productive and
+    efficient in their work and personal lives.
+  </p>
+  <p>
+    If you're interested in consultations regarding personal organization and
+    productivity, or if you're looking for a mentor to help you improve your
+    web development skills, check out my <%= link_to "services", "services" %>.
   </p>
   <%= render "application/social_link_list", links: @social_links %>
 <% end %>
@@ -14,23 +20,23 @@
     <h2>Blog</h2>
     <p>
       I have a blog at <a href="https://world.hey.com/niza">HEY World</a>. I
-      tend to post all kinds of things related to my work and interests. Check
-      it out if you're interested.
+      tend to post all kinds of things related to my work and interests. Grab
+      the RSS feed on the page if you want to keep up with my posts.
     </p>
-  </section class="section">
+  </section>
   <section class="section">
     <h2>Demos</h2>
     <p>
-      I've started to collect demos for my blog posts here as well. You can
-      check them out if you're interested.
+      I collect demos that I use in my blog here as well. You can check them out
+      if you're interested.
     </p>
     <%= link_to "Demos", "demo" %>
   </section class="section">
   <section class="section">
     <h2>Experience</h2>
     <p>
-      If you want to learn more about my work experience, you can check out
-      the timeline here.
+      My professional background and education is outlined as a timeline. Check
+      it out if you want to learn more.
     </p>
     <%= link_to "Experience", "experience" %>
   </section class="section">

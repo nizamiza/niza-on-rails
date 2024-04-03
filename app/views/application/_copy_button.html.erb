@@ -11,6 +11,6 @@
   <%= render "icon/alert" %> 
 </button>
 
-<% content_for_head_once "copy-button" do %>
-  <%= javascript_include_tag "copy-button", type: "module" %>
+<% content_for_scripts "copy-button" do %>
+  <%= javascript_include_tag "copy-button" %>
 <% end %>

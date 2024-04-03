@@ -4,6 +4,7 @@ sk:
     home: "Domov"
     demo: "Ukážky"
     experience: "Skúsenosti"
+    services: "Služby"
   locale:
     en: "Angličtina"
     sk: "Slovenčina"

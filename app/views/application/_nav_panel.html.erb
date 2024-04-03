@@ -1,5 +1,6 @@
-<% paths = ["home", "demo", "experience"] %>
+<% paths = ["home", "demo", "experience", "services"] %>
 <% dialog_id = "locale-change-dialog" %>
+<% ordered_locales = I18n.available_locales.sort_by { |locale| locale == I18n.locale ? 0 : 1 } %>
 
 <nav class="nav-panel">
   <ul class="custom-scrollbar">
@@ -12,6 +13,7 @@
   <button
     type="button"
     class="locale-change-button"
+    id="locale-change-button"
     aria-label="<%= t "locale.change" %>"
     aria-controls="<%= dialog_id %>"
     aria-expanded="false"
@@ -25,10 +27,14 @@
   >
     <%= render "icon/globe" %>
   </button>
-  <dialog id="<%= dialog_id %>" class="locale-change-dialog">
+  <dialog
+    id="<%= dialog_id %>"
+    class="locale-change-dialog"
+    aria-labelledby="locale-change-button"
+  >
     <h2 class="sr-only"><%= t "locale.change" %></h2>
     <ul>
-      <% I18n.available_locales.each do |locale| %>
+      <% ordered_locales.each do |locale| %>
         <li>
           <%= link_to t("locale.#{locale}"), localize_path(locale: locale) %>
         </li>

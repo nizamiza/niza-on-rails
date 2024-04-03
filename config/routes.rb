@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root "home#index"
     get "demo" => "demo#index"
     get "experience" => "experience#index"
+    get "services" => "service#index"
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -1,40 +1,35 @@
-import { querySelectIcons } from "utils";
+for (const button of document.querySelectorAll(".copy-button")) {
+  const icons = querySelectIcons(button);
 
-export function initCopyButtons() {
-  for (const button of document.querySelectorAll(".copy-button")) {
-    const icons = querySelectIcons(button);
+  if (!Object.keys(icons).length) {
+    console.error("Could not find some icons.");
+    continue;
+  }
 
-    if (!Object.keys(icons).length) {
-      console.error("Could not find some icons.");
-      continue;
+  toggleAriaHidden(true, icons.alert, icons.check);
+
+  button.addEventListener("click", async function () {
+    let copyText = this.dataset.text?.trim();
+
+    const selector = copyText.match(/^:selector\((.+)\)$/)?.[1];
+
+    if (selector) {
+      const target = document.querySelector(selector);
+      copyText = target?.dataset.content?.trim() || target?.textContent?.trim();
     }
 
-    toggleAriaHidden(true, icons.alert, icons.check);
+    if (!copyText) {
+      return;
+    }
 
-    button.addEventListener("click", async function () {
-      let copyText = this.dataset.text?.trim();
-
-      const selector = copyText.match(/^:selector\((.+)\)$/)?.[1];
-
-      if (selector) {
-        const target = document.querySelector(selector);
-        copyText =
-          target?.dataset.content?.trim() || target?.textContent?.trim();
-      }
-
-      if (!copyText) {
-        return;
-      }
-
-      try {
-        await navigator.clipboard.writeText(copyText);
-        setAriaHiddenToggleTimeout(icons.clipboard, icons.check);
-      } catch (error) {
-        console.error(error);
-        setAriaHiddenToggleTimeout(icons.clipboard, icons.alert);
-      }
-    });
-  }
+    try {
+      await navigator.clipboard.writeText(copyText);
+      setAriaHiddenToggleTimeout(icons.clipboard, icons.check);
+    } catch (error) {
+      console.error(error);
+      setAriaHiddenToggleTimeout(icons.clipboard, icons.alert);
+    }
+  });
 }
 
 function toggleAriaHidden(force, ...elements) {
@@ -51,4 +46,20 @@ function setAriaHiddenToggleTimeout(elementToShow, ...elementsToHide) {
     toggleAriaHidden(false, elementToShow);
     toggleAriaHidden(true, ...elementsToHide);
   }, 3000);
+}
+
+function querySelectIcons(element) {
+  const icons = {};
+
+  element.querySelectorAll(`[class*="icon-"]`).forEach((icon) => {
+    const name = Array.from(icon.classList)
+      .find((cls) => cls.startsWith("icon-"))
+      ?.replace("icon-", "");
+
+    if (name) {
+      icons[name] = icon;
+    }
+  });
+
+  return icons;
 }

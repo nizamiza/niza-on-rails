@@ -20,16 +20,16 @@
   <section class="section">
     <h2>Blog</h2>
     <p>
-      Mám blog na <a href="https://world.hey.com/niza">HEY World</a>. Zvyknem
-      pridávať všetko možné týkajúce sa mojej práce a záujmov. Ak chcete byť
-      informovaní o nových príspevkoch, môžete si prihlásiť odber RSS.
+      Mám blog na <%= render "application/blog_link" do %>HEY World<% end %>.
+      Zvyknem pridávať všetko možné týkajúce sa mojej práce a záujmov. Ak chcete
+      byť informovaní o nových príspevkoch, môžete si prihlásiť odber RSS.
     </p>
   </section>
   <section class="section">
     <h2>Demá</h2>
     <p>
-      Zbierám demá, ktoré používam aj vo svojom blogu. Ak vás zaujímajú, môžete
-      si ich pozrieť.
+      Pozrite si niektoré z dem, ktoré som vytvoril. Väčšina z nich je z môjich
+      blogových príspevkov, ale niektoré sú len tak pre zábavu.
     </p>
     <%= link_to "Demá", "demo" %>
   </section class="section">

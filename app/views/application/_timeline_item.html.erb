@@ -3,7 +3,8 @@
 <% period_end = local_assigns.fetch(:period_end, nil) %>
 <% formatted_period_start = period_start.strftime("%b %Y") %>
 <% formatted_period_end = period_end ? period_end.strftime("%b %Y") : "Present" %>
-<% duration = period_end ? period_end - period_start : Time.now - period_start %>
+<% diff = period_end ? period_end.to_time.to_i - period_start.to_time.to_i : Time.now.to_i - period_start.to_i %>
+<% duration = ActiveSupport::Duration.build(diff) %>
 <% duration_in_words = distance_of_time_in_words(period_start, period_end) %>
 
 <details class="timeline-item">
@@ -11,7 +12,7 @@
     <h3><%= summary %></h3>
     <p class="period">
       <%= formatted_period_start %> - <%= formatted_period_end %>
-      <time datetime="<%= duration %>">
+      <time datetime="<%= duration.iso8601 %>">
         <%= duration_in_words %>
       </time>
     </p>
@@ -21,7 +22,7 @@
   </div>
 </details>
 
-<% content_for_head_once "timeline-item" do %>
+<% content_for_styles "timeline-item" do %>
   <style>
     .timeline-item {
       --gap: 1.5rem;

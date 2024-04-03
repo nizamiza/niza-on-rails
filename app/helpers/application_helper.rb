@@ -1,12 +1,21 @@
 module ApplicationHelper
   require "redcarpet"
 
-  def content_for_head_once(id, &block)
-    @included_blocks ||= []
+  def content_for_scripts(id, &block)
+    content_for_once(:scripts, id, &block)
+  end
 
-    unless @included_blocks.include?(id)
-      @included_blocks << id
-      content_for(:head, &block)
+  def content_for_styles(id, &block)
+    content_for_once(:styles, id, &block)
+  end
+
+  def content_for_once(key, id, &block)
+    @included_blocks ||= {}
+    @included_blocks[key] ||= []
+
+    unless @included_blocks[key].include?(id)
+      @included_blocks[key] << id
+      content_for(key, &block)
     end
   end
 

@@ -2,7 +2,7 @@
   <%= yield %>
 </div>
 
-<% content_for_head_once "timeline" do %>
+<% content_for_scripts "timeline" do %>
   <script type="module">
     for (const timeline of document.querySelectorAll(".timeline")) {
       const items = timeline.querySelectorAll(".timeline-item");
@@ -12,6 +12,8 @@
       });
     }
   </script>
+<% end %>
+<% content_for_styles "timeline" do %>
   <style>
     .timeline {
       display: flex;

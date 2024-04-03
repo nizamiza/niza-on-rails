@@ -1,0 +1,18 @@
+<% content_for :page_title do %>Služby<% end %>
+<% content_for :page_description do %>Spoznajte služby, ktoré poskytujem.<% end %>
+<% content_for :page_header_color do %>coral<% end %>
+<% content_for :page_header do %>
+  <p>
+    Plánujem začať ponúkať služby na zvyšovanie osobnej produktivity, organizácie,
+    nastavenie vlastných pracovných postupov šité na mieru vašim potrebám a ďalšie.
+    Čakajte na viac informácií.
+  <p>
+  <%= render "application/back_link" %>
+<% end %>
+<section class="section">
+  <h2>Čoskoro...</h2>
+  <p>
+    Kým čakáte, môžete si pozrieť môj <%= render "application/blog_link" do
+    %>blog<% end %>.
+  </p>
+</section>

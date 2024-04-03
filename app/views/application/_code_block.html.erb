@@ -13,9 +13,11 @@
   <% end %>
 </code>
 
-<% content_for_head_once "code-block" do %>
+<% content_for_scripts "code-block" do %>
+  <%= javascript_include_tag "code-highlight" %>
+<% end %>
+<% content_for_styles "code-block" do %>
   <%= stylesheet_link_tag "code-highlight" %>
-  <%= javascript_include_tag "code-highlight", type: "module" %>
   <style>
     .code-block {
       &:empty:after {

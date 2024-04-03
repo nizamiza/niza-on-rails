@@ -1,0 +1,20 @@
+<% content_for :page_title do %>Services<% end %>
+<% content_for :page_description do %>Learn about services that I provide.<% end %>
+<% content_for :page_header_color do %>coral<% end %>
+<% content_for :page_header do %>
+  <p>
+    I plan to start offering services for increasing personal productivity,
+    organization, setting up custom workflows tailored to your specific needs,
+    and more. Stay tuned for more information.
+  <p>
+  <%= render "application/back_link" %>
+<% end %>
+<main>
+  <section class="section">
+    <h2>Coming Soon...</h2>
+    <p>
+      Meanwhile, you can check out my <%= render "application/blog_link" do
+      %>blog<% end %>.
+    </p>
+  </section>
+</main>

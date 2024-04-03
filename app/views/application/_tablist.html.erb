@@ -15,8 +15,8 @@
   <% end %>
 </div>
 
-<% content_for_head_once "tablist" do %>
-  <script type="module">
+<% content_for_scripts "tablist" do %>
+  <script>
     const tablists = document.querySelectorAll("[role='tablist']");
     
     for (const list of tablists) {
@@ -46,6 +46,8 @@
       }
     }
   </script>
+<% end %>
+<% content_for_styles "tablist" do %>
   <style>
     [role="tablist"] {
       display: flex;

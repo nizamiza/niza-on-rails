@@ -27,7 +27,7 @@
       <link
         rel="alternate"
         hreflang="<%= locale %>"
-        href="<%= url_for(locale: locale) %>">
+        href="<%= url_for(locale: locale, only_path: false) %>"
     <% end %>
     
     <%= csrf_meta_tags %>
@@ -41,6 +41,7 @@
     <%= javascript_importmap_tags %>
 
     <%= content_for?(:head) ? yield(:head) : "" %>
+    <%= content_for?(:styles) ? yield(:styles) : "" %>
   </head>
   <body>
     <% if content_for?(:page_header) %>
@@ -51,5 +52,6 @@
     <%= yield %>
     <%= render "application/page_footer" %>
     <%= render "application/nav_panel" %>
+    <%= content_for?(:scripts) ? yield(:scripts) : "" %>
   </body>
 </html>

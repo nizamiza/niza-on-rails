@@ -17,6 +17,19 @@ sk:
     default_label: "Karty"
     aria-label: "Kliknite pre prechod na kartu %{tab}"
     result_tab: "Výsledok"
+  errors:
+    not_found:
+      title: "404 | Nenájdené"
+      short_description: "Ospravedlňujem sa, ale obsah, ktorý ste hľadali, sa nenašiel."
+      description: >
+        Ospravedlňujem sa, ale obsah, ktorý ste hľadali, sa nenašiel. Uistite
+        sa, že máte správnu URL a skúste to znova.
+    internal_server_error:
+      title: "500 | Interná chyba servera"
+      short_description: "Ospravedlňujem sa, niečo sa pokazilo..."
+      description: >
+        Ospravedlňujem sa, ale niečo sa pokazilo. Skúste obnoviť stránku alebo
+        sa vráťte neskôr.
   home:
     title: "Domov"
   social:

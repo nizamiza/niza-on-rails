@@ -17,6 +17,19 @@ en:
     default_label: "Tabs"
     aria-label: "Click to navigate to the %{tab} tab"
     result_tab: "Result"
+  errors:
+    not_found:
+      title: "404 | Not Found"
+      short_description: "Sorry, but the content you were looking for could not be found."
+      description: >
+        Sorry, but the content you were looking for could not be found. Make
+        sure you have the right URL and try again.
+    internal_server_error:
+      title: "500 | Internal Server Error"
+      short_description: "Sorry, something went wrong..."
+      description: >
+        Sorry, but something went wrong. Try refreshing the page or come back
+        later.
   home:
     title: "Home"
   social:

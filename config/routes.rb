@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "home#index"
+
     get "demo" => "demo#index"
     get "experience" => "experience#index"
     get "services" => "service#index"
+
+    match "/404", to: "errors#not_found", via: :all
+    match "/500", to: "errors#internal_server_error", via: :all
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

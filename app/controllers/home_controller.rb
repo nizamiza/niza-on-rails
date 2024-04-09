@@ -7,7 +7,7 @@ class HomeController < ApplicationController
         icon: "github",
       },
       {
-        url: "https://www.linkedin.com/in/niza-toshpulatov-27223b233",
+        url: "https://www.linkedin.com/in/niza-toshpulatov",
         label: t("linkedin_profile"),
         icon: "linkedin",
       },

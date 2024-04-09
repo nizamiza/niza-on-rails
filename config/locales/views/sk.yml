@@ -2,7 +2,7 @@
 sk:
   route:
     home: "Domov"
-    demo: "Ukážky"
+    demo: "Demá"
     experience: "Skúsenosti"
     services: "Služby"
   locale:

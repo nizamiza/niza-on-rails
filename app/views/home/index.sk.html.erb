@@ -12,7 +12,7 @@
   <p>
     Ak máte záujem o konzultácie týkajúce sa osobnej organizácie a produktivity
     alebo hľadáte mentora, ktorý vám pomôže zlepšiť vaše zručnosti v oblasti
-    web vývoja, pozrite si moje <%= link_to "služby", "services" %>.
+    web vývoja, pozrite si moje <%= a11y_link_to "services", downcase: true %>.
   </p>
   <%= render "application/social_link_list", links: @social_links %>
 <% end %>
@@ -31,7 +31,7 @@
       Pozrite si niektoré z dem, ktoré som vytvoril. Väčšina z nich je z môjich
       blogových príspevkov, ale niektoré sú len tak pre zábavu.
     </p>
-    <%= link_to "Demá", "demo" %>
+    <%= a11y_link_to "demo" %>
   </section class="section">
   <section class="section">
     <h2>Skúsenosti</h2>
@@ -39,6 +39,6 @@
       Pozrite si moje skúsenosti a zručnosti, ktoré som získal počas svojej
       kariéry. Môžete sa dozvedieť viac o mojich projektov a spolupráciach.
     </p>
-    <%= link_to "Skúsenosti", "experience" %>
+    <%= a11y_link_to "experience" %>
   </section class="section">
 </main>

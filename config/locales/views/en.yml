@@ -1,10 +1,11 @@
 ---
 en:
   route:
+    aria-label: "Navigate to the %{page} page"
     home: "Home"
     demo: "Demos"
     experience: "Experience"
-    serices: "Services"
+    services: "Services"
   locale:
     en: "English"
     sk: "Slovak"
@@ -14,6 +15,8 @@ en:
   avatar_alt: "Photo of Niza"
   tablist:
     default_label: "Tabs"
+    aria-label: "Click to navigate to the %{tab} tab"
+    result_tab: "Result"
   home:
     title: "Home"
   social:
@@ -22,6 +25,7 @@ en:
     spotify: "Check out my Spotify profile"
     youtube: "Check out my YouTube channel"
   experience:
+    present: "Present"
     work:
       title: "Work"
       99designs:

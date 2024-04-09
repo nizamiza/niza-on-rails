@@ -1,9 +1,9 @@
 <% summary = local_assigns.fetch(:summary) %>
 <% period_start = local_assigns.fetch(:period_start) %>
 <% period_end = local_assigns.fetch(:period_end, nil) %>
-<% formatted_period_start = period_start.strftime("%b %Y") %>
-<% formatted_period_end = period_end ? period_end.strftime("%b %Y") : "Present" %>
-<% diff = period_end ? period_end.to_time.to_i - period_start.to_time.to_i : Time.now.to_i - period_start.to_i %>
+<% formatted_period_start = l(period_start, format: "%b %Y") %>
+<% formatted_period_end = period_end ? l(period_end, format: "%b %Y") : t("experience.present") %>
+<% diff = period_end ? date_to_time_i(period_end) - date_to_time_i(period_start) : Time.now.to_i - date_to_time_i(period_start) %>
 <% duration = ActiveSupport::Duration.build(diff) %>
 <% duration_in_words = distance_of_time_in_words(period_start, period_end) %>
 

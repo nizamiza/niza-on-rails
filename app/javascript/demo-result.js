@@ -39,8 +39,10 @@ function initDemoResultTabpanels() {
 
       const element = document.createElement(tag);
 
-      const code =
+      let code =
         otherPanel.querySelector("[data-content]")?.dataset.content || "";
+
+      code = code.trim().replaceAll("&apos;", "'");
 
       element.innerHTML = code;
       codeBlocks.push(element);

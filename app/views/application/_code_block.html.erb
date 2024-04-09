@@ -6,7 +6,7 @@
   <pre
     class="code-block"
     data-lang="<%= lang %>"
-    data-content='<%= content %>'
+    data-content='<%= content.gsub("'", "&apos;") %>'
   ></pre>
   <% if with_copy_button %>
     <%= render "application/copy_button", text: content.to_s  %>

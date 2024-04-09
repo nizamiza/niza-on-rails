@@ -9,7 +9,7 @@ class DemoController < ApplicationController
 
     @demos = [
       create_demo("text_decoration_hamburger_menu"),
-      create_demo("nz_counter", [
+      create_demo("pure_html_counter", [
         get_tab_def("result"),
         get_tab_def("html"),
       ]),

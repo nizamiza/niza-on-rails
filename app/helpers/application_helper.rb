@@ -58,4 +58,23 @@ module ApplicationHelper
       "/#{locale}#{final_path}"
     end
   end
+
+  def a11y_link_to(path, options = {})
+    should_downcase = options.delete(:downcase)
+    route_label = t("route.#{path}")
+
+    if should_downcase
+      route_label = route_label.downcase
+    end
+
+    link_to(
+      route_label,
+      localize_path(path: path, **options),
+      "aria-label": t("route.aria-label", page: t("route.#{path}")),
+    )
+  end
+
+  def date_to_time_i(date)
+    date.to_time.to_i
+  end
 end

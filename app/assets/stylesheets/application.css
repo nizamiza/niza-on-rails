@@ -135,21 +135,21 @@ body {
       text-decoration: none;
       line-height: 1.5;
     }
+  }
 
-    &::after {
-      content: "";
-      position: sticky;
-      right: 0;
-      height: 100%;
-      width: 2px;
-      color: transparent;
-      border-radius: var(--br-full);
-      background-color: color-mix(
-        in srgb,
-        var(--fg-color),
-        var(--fg-color-inverse) 30%
-      );
-    }
+  &::after {
+    content: "";
+    position: sticky;
+    right: 0;
+    height: 100%;
+    width: 2px;
+    color: transparent;
+    border-radius: var(--br-full);
+    background-color: color-mix(
+      in srgb,
+      var(--fg-color),
+      var(--fg-color-inverse) 30%
+    );
   }
 
   @media (prefers-color-scheme: dark) {
@@ -169,6 +169,7 @@ body {
 .locale-change-button {
   background-color: transparent;
   padding: 0.125rem;
+  order: 99;
 }
 
 .locale-change-dialog[open] {
@@ -207,12 +208,14 @@ body {
   --end-color: color-mix(in srgb, var(--base-color), var(--bg-color) 70%);
 
   &::before {
+    --color-space-or-direction: to bottom;
+
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
     background-image: linear-gradient(
-      in oklab,
+      var(--color-space-or-direction),
       var(--base-color),
       color-mix(in oklab, var(--end-color), transparent 60%)
     );
@@ -226,6 +229,12 @@ body {
     background-image: url("noise.svg");
     background-repeat: repeat;
     background-size: 28rem;
+  }
+}
+
+@supports (background-image: linear-gradient(in oklab, red, blue)) {
+  .noise::before {
+    --color-space-or-direction: in oklab;
   }
 }
 

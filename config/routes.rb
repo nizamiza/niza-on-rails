@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     get "experience" => "experience#index"
     get "services" => "service#index"
 
+    # Redirect blog to HEY World
+    get "blog" => redirect("https://world.hey.com/niza")
+
     get "404" => "errors#not_found"
     get "500" => "errors#internal_server_error"
   end

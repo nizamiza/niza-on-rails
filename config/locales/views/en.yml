@@ -1,7 +1,7 @@
 ---
 en:
   route:
-    aria-label: "Navigate to the %{page} page"
+    aria_label: "Navigate to the %{page} page"
     home: "Home"
     demo: "Demos"
     experience: "Experience"
@@ -15,7 +15,7 @@ en:
   avatar_alt: "Photo of Niza"
   tablist:
     default_label: "Tabs"
-    aria-label: "Click to navigate to the %{tab} tab"
+    aria_label: "Click to navigate to the %{tab} tab"
     result_tab: "Result"
   errors:
     not_found:

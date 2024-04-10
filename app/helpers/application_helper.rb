@@ -70,7 +70,7 @@ module ApplicationHelper
     link_to(
       route_label,
       localize_path(path: path, **options),
-      "aria-label": t("route.aria-label", page: t("route.#{path}")),
+      "aria-label": t("route.aria_label", page: t("route.#{path}")),
     )
   end
 

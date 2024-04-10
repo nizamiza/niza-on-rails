@@ -4,13 +4,15 @@
 
 <div id="<%= id %>" aria-label="<%= aria_label %>" role="tablist">
   <% tabs.each do |tab| %>
+    <% label = tab[:label] == "Result" ? t("tablist.result_tab") : tab[:label] %>
     <button
       role="tab"
       aria-selected="<%= tab[:selected] ? "true" : "false" %>"
       aria-controls="<%= tab[:id] %>"
+      aria-label="<%= t("tablist.aria_label", tab: label) %>"
       id="<%= tab[:id] %>-tab"
     >
-      <%= tab[:label] %>
+      <%= label %>
     </button>
   <% end %>
 </div>
@@ -53,6 +55,8 @@
       display: flex;
       gap: 0.5rem;
       justify-content: space-between;
+      white-space: nowrap;
+      overflow-x: auto;
     }
 
     [role="tab"] {

@@ -5,8 +5,8 @@
     <li>
       <%= render "application/social_link",
         url: link[:url],
-        name: link[:icon],
-        label: link[:label]
+        name: link[:type],
+        label: t("social.#{link[:type]}")
       %>
     </li>
   <% end %>

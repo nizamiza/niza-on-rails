@@ -3,23 +3,19 @@ class HomeController < ApplicationController
     @social_links = [
       {
         url: "https://github.com/nizamiza",
-        label: t("github_profile"),
-        icon: "github",
+        type: "github",
       },
       {
         url: "https://www.linkedin.com/in/niza-toshpulatov",
-        label: t("linkedin_profile"),
-        icon: "linkedin",
+        type: "linkedin",
       },
       {
         url: "https://open.spotify.com/artist/2ddaqi6mbLWcpPKZwZvYky?si=KBbMeSMYTkWwByjGkIL1XQ",
-        label: t("spotify_profile"),
-        icon: "music",
+        type: "spotify",
       },
       {
         url: "https://www.youtube.com/channel/UCWcOtEVT1KVRPZ0j-pumVZA",
-        label: t("youtube_profile"),
-        icon: "youtube",
+        type: "youtube",
       },
     ]
   end

@@ -1,6 +1,7 @@
 ---
 sk:
   route:
+    aria_label: "Prejsť na stránku %{page}"
     home: "Domov"
     demo: "Demá"
     experience: "Skúsenosti"
@@ -14,6 +15,21 @@ sk:
   avatar_alt: "Foto Nizu"
   tablist:
     default_label: "Karty"
+    aria_label: "Kliknite pre prechod na kartu %{tab}"
+    result_tab: "Výsledok"
+  errors:
+    not_found:
+      title: "404 | Nenájdené"
+      short_description: "Ospravedlňujem sa, ale obsah, ktorý ste hľadali, sa nenašiel."
+      description: >
+        Ospravedlňujem sa, ale obsah, ktorý ste hľadali, sa nenašiel. Uistite
+        sa, že máte správnu URL a skúste to znova.
+    internal_server_error:
+      title: "500 | Interná chyba servera"
+      short_description: "Ospravedlňujem sa, niečo sa pokazilo..."
+      description: >
+        Ospravedlňujem sa, ale niečo sa pokazilo. Skúste obnoviť stránku alebo
+        sa vráťte neskôr.
   home:
     title: "Domov"
   social:
@@ -22,6 +38,7 @@ sk:
     spotify: "Môj profil na Spotify"
     youtube: "Môj kanál na YouTube"
   experience:
+    present: "Súčasnosť"
     work:
       title: "Práca"
       99designs:

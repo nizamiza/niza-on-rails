@@ -9,11 +9,13 @@ async function init() {
 
   for (const block of codeBlocks) {
     const { content, lang } = block.dataset;
-    const code = content?.trim() || block.textContent.trim();
+    let code = content?.trim() || block.textContent.trim();
 
     if (!code) {
       continue;
     }
+
+    code = code.replaceAll("&apos;", "'");
 
     const { default: highlight } = await import(
       hljsUrl(`/lib/languages/${lang}.js`)

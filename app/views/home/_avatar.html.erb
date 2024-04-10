@@ -1,15 +1,13 @@
 <figure class="avatar-figure">
-  <div class="noise" role="img"></div>
+  <div class="noise" role="presentation"></div>
   <%= image_tag "me.jpeg",
     class: "avatar-img",
-    alt: t("views.application.avatar_alt"),
+    alt: t("avatar_alt"),
     width: 160,
     height: 160
   %>
   <figcaption class="sr-only">
-    <p>
-      <%= t("avatar_alt") %>
-    </p>
+    <%= t("avatar_alt") %>
   </figcaption>
 </figure>
 

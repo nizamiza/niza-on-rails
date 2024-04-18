@@ -12,6 +12,7 @@ sk:
     sk: "Slovenčina"
     change: "Zmeniť jazyk"
   back_to: "Späť %{path}"
+  close: "Zavrieť"
   copy_to_clipboard: "Kopírovať do schránky"
   avatar_alt: "Foto Nizu"
   tablist:
@@ -62,3 +63,8 @@ sk:
       submit: "Odoslať žiadosť"
       success: "Vaša žiadosť bola úspešne odoslaná!"
       error: "Pri odosielaní vašej žiadosti sa vyskytla chyba."
+    approval:
+      success: "Žiadosť bola úspešne schválená!"
+      error: "Pri schvaľovaní žiadosti sa vyskytla chyba."
+      email:
+        subject: "Vaša žiadosť o CV bola schválená!"

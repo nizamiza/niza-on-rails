@@ -13,19 +13,24 @@
 ActiveRecord::Schema[7.1].define(version: 2024_04_15_142621) do
   create_table "access_requests", force: :cascade do |t|
     t.integer "kind"
-    t.json "requester"
+    t.string "name"
+    t.string "email"
+    t.string "message"
+    t.string "approval_token"
     t.integer "access_token_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["access_token_id"], name: "index_access_requests_on_access_token_id"
+    t.index ["approval_token"], name: "index_access_requests_on_approval_token", unique: true
   end
 
   create_table "access_tokens", force: :cascade do |t|
+    t.integer "kind"
     t.string "token"
     t.datetime "expires_at"
-    t.integer "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_access_tokens_on_token", unique: true
   end
 
   add_foreign_key "access_requests", "access_tokens"

@@ -1,6 +1,6 @@
 <% type = local_assigns.fetch(:type, "notice") %>
 
-<dialog class="status-message" data-type="<%= type %>">
+<dialog class="status-message" data-type="<%= type %>" open>
   <%= yield %>
   <form method="dialog">
     <button

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     get "cv" => "cv#index"
     get "cv/:token" => "cv#show"
+    get "cv/:id/approve/:token" => "cv#approve"
 
     # Redirect blog to HEY World
     get "blog" => redirect("https://world.hey.com/niza")

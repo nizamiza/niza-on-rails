@@ -12,6 +12,7 @@ en:
     sk: "Slovak"
     change: "Change language"
   back_to: "Back to %{path}"
+  close: "Close"
   copy_to_clipboard: "Copy to clipboard"
   avatar_alt: "Photo of Niza"
   tablist:
@@ -62,3 +63,8 @@ en:
       submit: "Request access"
       success: "Your request has been sent successfully!"
       error: "An error occurred while sending your request."
+    approval:
+      success: "Request has been successfully approved!"
+      error: "An error occurred while approving the request."
+      email:
+        subject: "Your CV request has been approved!"

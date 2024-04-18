@@ -1,4 +1,5 @@
 <h1><%= @subject %></h1>
+<p>Hi 👋</p> 
 <p>
   <%= @requester_name %> (<%= @requester_email %>)  has requested access to your
   curriculum vitae.
@@ -16,9 +17,9 @@
   If you approve of this request, please click the link below:
 </p>
 <p>
-  <%= link_to "https://google.com" %>
+  <%= link_to "Approve request", @approval_url %>
 </p>
 <br>
 <footer>
-  Sent from <%= link_to "niza.cz", root_url %> on <%= Time.current.to_s(:long) %>.
+  Sent from <%= link_to "niza.cz", @base_url %> on <%= l(Time.now, format: :long) %>.
 </footer>

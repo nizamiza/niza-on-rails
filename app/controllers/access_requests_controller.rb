@@ -9,15 +9,33 @@ class AccessRequestsController < ApplicationController
       raise ActiveRecord::RecordInvalid
     end
 
-    requester = { name: name, email: email, message: message }
-    access_request = AccessRequest.create(kind: kind, requester: requester)
+    access_request = AccessRequest.new(
+      kind: kind.to_sym,
+      name: name,
+      email: email,
+      message: message,
+    )
 
-    if access_request.nil?
+    unless access_request.save
+      if Rails.env.development?
+        raise access_request.errors.full_messages.join(", ")
+      end
+
       raise ActiveRecord::RecordInvalid
     end
 
-    CvRequestMailer.request_access(access_request).deliver_now
+    begin
+      CvRequestsMailer.request_access(access_request, request.base_url).deliver_now
+      flash[:success] = t("cv.request_form.success")
+    rescue => e
+      if Rails.env.development?
+        raise e
+      end
 
-    flash[:notice] = "Your request has been sent."
+      puts "Failed to send CV request email: #{e}"
+      flash[:alert] = t("cv.request_form.error")
+    ensure
+      redirect_to request.referrer
+    end
   end
 end

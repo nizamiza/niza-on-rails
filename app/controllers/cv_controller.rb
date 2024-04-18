@@ -14,7 +14,47 @@ class CvController < ApplicationController
 
     @token = token
 
-    # invalidate token
-    db_token.update(expires_at: Time.now)
+    # delete token and access request
+    db_token.destroy
+  end
+
+  def approve
+    id = params[:id]
+    token = params[:token]
+
+    if id.empty? or token.empty?
+      raise ActiveRecord::RecordNotFound
+    end
+
+    access_request = AccessRequest.find_by(id: id)
+
+    if access_request.nil? or not access_request.cv? or access_request.approval_token != token
+      raise ActiveRecord::RecordNotFound
+    end
+
+    access_token = AccessToken.new(kind: :cv, expires_at: 7.day.from_now)
+
+    unless access_token.save
+      if Rails.env.development?
+        raise access_token.errors.full_messages.join(", ")
+      end
+
+      raise ActiveRecord::RecordInvalid
+    end
+
+    begin
+      access_request.update!(access_token: access_token)
+      CvRequestsMailer.approve_access(access_request, request.base_url).deliver_now
+
+      flash[:success] = t("cv.approval.success")
+    rescue => e
+      if Rails.env.development?
+        raise e
+      end
+
+      flash[:alert] = t("cv.approval.error")
+    ensure
+      redirect_to root_path
+    end
   end
 end

@@ -1,0 +1,26 @@
+<h1><%= @subject %></h1>
+<p>Hi <%= @requester_name %> 👋</p>
+<p>
+  On <%= l @access_request.created_at, format: :short %>, you requested access
+  to my curriculum vitae.
+</p>
+<p>
+  After reviewing your request, I have decided to approve it. You can now view
+  my CV by clicking the link below:
+</p>
+<p>
+  <%= link_to "Niza's CV", @access_url %>
+</p>
+<p>
+  Note that this link is one-time use only and will expire in one week. Should
+  you need access again, please submit a new request.
+</p>
+<br>
+<p>
+  Best regards,<br>
+  Niza
+</p>
+<footer>
+  Do not reply to this email. If you didn't send a CV access request from <%=
+  link_to "niza.cz", @base_url %>, please ignore this email.
+</footer>

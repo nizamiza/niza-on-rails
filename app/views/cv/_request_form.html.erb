@@ -4,7 +4,8 @@
 <p>
   <%= t("cv.request_form.description") %>
 </p>
-<form action="/access_request" method="post">
+<%= form_with url: "/access_request" do %>
+  <input type="hidden" name="kind" value="cv">
   <%= render "application/form_field",
     id: "name",
     label: t("cv.request_form.name"),
@@ -26,9 +27,12 @@
   <%= render "application/form_field",
     id: "message",
     label: t("cv.request_form.message"),
-    element: "textarea"
+    element: "textarea",
+    attributes: {
+      required: true
+    }
   %>
   <button type="submit">
     <%= t("cv.request_form.submit") %> 
   </button>
-</form>
+<% end %>

@@ -9,7 +9,15 @@
   <%= render "application/back_link" %>
 <% end %>
 <main>
-  <section class="section">
-    <%= render "request_form" %>
-  </section>
+  <% if @requests_disabled %>
+    <section class="section">
+      <p>
+        I am not currently accepting CV requests. Please check back later.
+      </p>
+    </section>
+  <% else %>
+    <section class="section">
+      <%= render "request_form" %>
+    </section>
+  <% end %>
 </main>

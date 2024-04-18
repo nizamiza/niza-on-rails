@@ -170,6 +170,10 @@ body {
     --font-size: 1rem;
     --px: calc(var(--py) * 2);
   }
+
+  @media print {
+    display: none;
+  }
 }
 
 .locale-change-button {

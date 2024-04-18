@@ -157,7 +157,7 @@ h4,
 
 h5,
 .h5 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   max-width: 45ch;
   line-height: 1.1;
@@ -165,10 +165,11 @@ h5,
 
 h6,
 .h6 {
-  font-size: 1.125rem;
+  font-family: var(--ff-mono);
+  font-size: 0.825rem;
   font-weight: 600;
   max-width: 50ch;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 @media screen and (min-width: 48rem) {

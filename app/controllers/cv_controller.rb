@@ -12,7 +12,14 @@ class CvController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
 
+    contact_info = ContactInfo.first
+
+    if contact_info.nil?
+      raise ActiveRecord::RecordNotFound
+    end
+
     @token = token
+    @contact_info = contact_info
 
     # delete token and access request
     db_token.destroy

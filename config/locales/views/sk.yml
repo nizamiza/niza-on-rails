@@ -68,3 +68,22 @@ sk:
       error: "Pri schvaľovaní žiadosti sa vyskytla chyba."
       email:
         subject: "Vaša žiadosť o CV bola schválená!"
+    contact_info:
+      title: "Kontaktné informácie"
+      email: "Napíšte mi"
+      phone: "Zavolajte mi"
+      address: "Kde bývam"
+      languages: "Jazyky, ktorými hovorím"
+      social_links:
+        title: "Nájdete ma aj na"
+        linkedin: "LinkedIn"
+        github: "GitHub"
+        website: "Moja webstránka"
+    access_note:
+      title: "Dobrý deň!"
+      close: "Rozumiem"
+      description: >
+        Super, že ste sa sem dostali. Tento odkaz je jednorazové použitie. Takže
+        ak si chcete môj životopis pozrieť neskôr, uistite sa, že túto stránku
+        vytlačíte alebo uložíte ako PDF. Obvykle to môžete urobiť stlačením
+        <kbd>Ctrl</kbd> + <kbd>P</kbd> na klávesnici.

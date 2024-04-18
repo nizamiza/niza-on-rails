@@ -68,3 +68,22 @@ en:
       error: "An error occurred while approving the request."
       email:
         subject: "Your CV request has been approved!"
+    contact_info:
+      title: "Contact information"
+      email: "Email me"
+      phone: "Call me"
+      address: "Where I live"
+      languages: "Languages I speak"
+      social_links:
+        title: "Find me online"
+        linkedin: "LinkedIn"
+        github: "GitHub"
+        website: "My website"
+    access_note:
+      title: "Hi there!"
+      close: "Got it"
+      description: >
+        Glad you made it here. This link is one-time use only. So if you want to
+        view my CV later, make sure to print this page or save it as a PDF.
+        Usually, you can do this by pressing <kbd>Ctrl</kbd> + <kbd>P</kbd> on
+        your keyboard.

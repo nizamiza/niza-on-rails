@@ -1,0 +1,27 @@
+
+<h1><%= @subject %></h1>
+<p>Dobrý deň <%= @requester_name %> 👋</p>
+<p>
+  Dňa <%= l @access_request.created_at, format: :short %>, ste požiadali o
+  prístup k môjmu životopisu.
+</p>
+<p>
+  Po preskúmaní vašej žiadosti som sa rozhodol schváliť ju. Teraz si môžete
+  prezrieť môj životopis kliknutím na nasledujúci odkaz:
+</p>
+<p>
+  <%= link_to "Moje CV", @access_url %>
+</p>
+<p>
+  Poznámka: Tento odkaz je jednorazový a vyprší o týždeň. Ak budete potrebovať
+  prístup znova, pošlite novú žiadosť.
+</p>
+<br>
+<p>
+  S pozdravom<br>
+  Niza
+</p>
+<footer>
+  Neodpovedajte na tento e-mail. Ak ste neposlali žiadosť o prístup k životopisu
+  z <%= link_to "niza.cz", @base_url %>, ignorujte tento e-mail.
+</footer>

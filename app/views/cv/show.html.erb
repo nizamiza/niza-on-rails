@@ -2,8 +2,84 @@
 <% content_for :page_description do %>My curriculum vitae.<% end %>
 <% content_for :page_header_color do %>chocolate<% end %>
 <% content_for :page_header do %>
-  <p>
-    Born in Tashkent. 
-  </p>
-  <%= render "application/back_link" %>
+  <%= render "home/avatar" %>
+  <section class="contact-info">
+    <h2 class="h3"><%= t "cv.contact_info.title" %></h2>
+    <% if @contact_info.address.present? %>
+      <section>
+        <h3 class="h6"><%= t "cv.contact_info.address" %></h3>
+        <p><%= @contact_info.address %></p>
+      </section>
+    <% end %>
+    <% if @contact_info.phone.present? %>
+      <section>
+        <h3 class="h6"><%= t "cv.contact_info.phone" %></h3>
+        <p><%= @contact_info.phone %></p>
+      </section>
+    <% end %>
+    <% if @contact_info.email.present? %>
+      <section>
+        <h3 class="h6"><%= t "cv.contact_info.email" %></h3>
+        <p><%= @contact_info.email %></p>
+      </section>
+    <% end %>
+    <% if @contact_info.social_links.present? %>
+      <section class="social-links">
+        <h3 class="h6"><%= t "cv.contact_info.social_links.title" %></h3>
+        <ul>
+          <% @contact_info.social_links.keys.each do |key| %>
+            <li>
+              <b><%= t "cv.contact_info.social_links.#{key}" %>:</b> <%= @contact_info.social_links[key] %>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+    <% end %>
+    <% if @contact_info.languages.present? %>
+      <section class="languages">
+        <h3 class="h6"><%= t "cv.contact_info.languages" %></h3>
+        <ul>
+          <% @contact_info.languages.each do |language| %>
+            <li><%= language %></li>
+          <% end %>
+        </ul>
+      </section>
+    <% end %>
+  </section>
+<% end %>
+<%= render "access_note" %>
+<main class="cv-main-content">
+  <%= render "experience/body" %>
+</main>
+
+<% content_for_styles "contact-info" do %>
+  <style>
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+      break-after: page;
+
+      & > section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        & > h3::after {
+          content: ":";
+        }
+      }
+    }
+
+    .social-links {
+      grid-column: 1 / -1;
+    }
+
+    .cv-main-content {
+      & > section {
+        break-after: page;
+      }
+    }
+  </style>
 <% end %>

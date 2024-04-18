@@ -22,6 +22,21 @@
   </div>
 </details>
 
+<% content_for_scripts "timeline-item" do %>
+  <script type="module">
+    const printMedia = window.matchMedia("print");
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    function handlePrint(matches) {
+      timelineItems.forEach((item) => {
+        item.toggleAttribute("open", matches);
+      });
+    }
+
+    printMedia.addEventListener("change", (e) => handlePrint(e.matches));
+    handlePrint(printMedia.matches);
+  </script>
+<% end %>
 <% content_for_styles "timeline-item" do %>
   <style>
     .timeline-item {

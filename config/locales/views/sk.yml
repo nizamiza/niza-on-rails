@@ -49,3 +49,15 @@ sk:
         website: "Webstránka STU FIIT"
       tpcit:
         website: "TPCIT na Facebooku"
+  cv:
+    request_form:
+      title: "Odoslať formulár"
+      description: >
+        Po odoslaní formulára dostanem o vašej žiadosti oznámenie. Po jej
+        preskúmaní sa vám čo najskôr ozvem.
+      name: "Meno"
+      email: "E-mail"
+      message: "Správa"
+      submit: "Odoslať žiadosť"
+      success: "Vaša žiadosť bola úspešne odoslaná!"
+      error: "Pri odosielaní vašej žiadosti sa vyskytla chyba."

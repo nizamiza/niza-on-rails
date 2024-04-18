@@ -8,12 +8,17 @@ Rails.application.routes.draw do
     get "experience" => "experience#index"
     get "services" => "service#index"
 
+    get "cv" => "cv#index"
+    get "cv/:token" => "cv#show"
+
     # Redirect blog to HEY World
     get "blog" => redirect("https://world.hey.com/niza")
 
     get "404" => "errors#not_found"
     get "500" => "errors#internal_server_error"
   end
+
+  resource :access_requests, only: [:create]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

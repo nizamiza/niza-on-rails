@@ -1,0 +1,34 @@
+<h2>
+  <%= t("cv.request_form.title") %>
+</h2>
+<p>
+  <%= t("cv.request_form.description") %>
+</p>
+<form action="/access_request" method="post">
+  <%= render "application/form_field",
+    id: "name",
+    label: t("cv.request_form.name"),
+    attributes: {
+      required: true,
+      type: "text",
+      autocomplete: "name"
+    }
+  %>
+  <%= render "application/form_field",
+    id: "email",
+    label: t("cv.request_form.email"),
+    attributes: {
+      required: true,
+      type: "email",
+      autocomplete: "email"
+    }
+  %>
+  <%= render "application/form_field",
+    id: "message",
+    label: t("cv.request_form.message"),
+    element: "textarea"
+  %>
+  <button type="submit">
+    <%= t("cv.request_form.submit") %> 
+  </button>
+</form>

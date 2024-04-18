@@ -48,13 +48,24 @@
   </head>
   <body>
     <% if content_for?(:page_header) %>
-      <%= render "application/page_header", color: content_for?(:page_header_color) ? yield(:page_header_color) : nil do %>
+      <%= render "application/page_header",
+        color: content_for?(:page_header_color) ? yield(:page_header_color) : nil,
+        emoji: content_for?(:page_header_emoji) ? yield(:page_header_emoji) : nil do %>
         <%= yield(:page_header) %>
       <% end %>
     <% end %>
     <%= yield %>
     <%= render "application/page_footer" %>
     <%= render "application/nav_panel" %>
+    <ul class="status-message-list">
+      <% flash.each do |key, value| %>
+        <li>
+          <%= render "application/status_message", type: key do %>
+            <%= value %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
     <%= content_for?(:scripts) ? yield(:scripts) : "" %>
   </body>
 </html>

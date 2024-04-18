@@ -197,7 +197,7 @@ h6,
   }
 }
 
-*:not(.no-default-focus):focus-visible {
+*:not(.no-default-focus, button):focus-visible {
   --backdrop-filter: blur(0.25rem);
   --text-color: hsl(var(--theme-white));
   --backdrop-bg-base: var(--theme-black);
@@ -214,7 +214,7 @@ h6,
       var(--backdrop-offset-base) * var(--backdrop-offset-inline-factor) * -1
     );
 
-  outline: none;
+  outline: 0;
   position: relative;
   color: var(--text-color) !important;
   z-index: 99;

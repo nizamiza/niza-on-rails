@@ -1,0 +1,24 @@
+<h1><%= @subject %></h1>
+<p>
+  <%= @requester_name %> (<%= @requester_email %>)  has requested access to your
+  curriculum vitae.
+</p>
+<% if @message.present? %>
+  <p>
+    Here is what they wrote:
+  </p>
+  <blockquote>
+    <%= @message %>
+  </blockquote>
+<% end %>
+<br>
+<p>
+  If you approve of this request, please click the link below:
+</p>
+<p>
+  <%= link_to "https://google.com" %>
+</p>
+<br>
+<footer>
+  Sent from <%= link_to "niza.cz", root_url %> on <%= Time.current.to_s(:long) %>.
+</footer>

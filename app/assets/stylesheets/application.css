@@ -16,10 +16,16 @@ button {
   background-color: hsl(var(--theme-accent));
   color: var(--bg-color);
   border: 0;
-  padding: 0.35em 1.25em;
+  padding: 0.5em 1.5em;
   border-radius: var(--br-lg);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
+
+  &:focus-visible {
+    color: var(--bg-color);
+    background-color: var(--fg-color);
+    outline-color: var(--fg-color);
+  }
 }
 
 :is(ul, ol, dt) {
@@ -269,5 +275,25 @@ body {
 
   &.stretch {
     align-items: stretch;
+  }
+}
+
+form {
+  display: grid;
+  gap: 0.825rem;
+  width: 100%;
+
+  & > :is(textarea, .form-field:has(textarea)) {
+    grid-column: 1 / -1;
+  }
+
+  & > [type="submit"] {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
   }
 }

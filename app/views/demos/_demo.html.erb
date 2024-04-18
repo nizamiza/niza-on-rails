@@ -4,17 +4,17 @@
 
 <section class="demo">
   <header class="demo-header">
-    <%= render "demo/content/#{id}/header" rescue nil %>
+    <%= render "demos/content/#{id}/header" rescue nil %>
   </header>
   <div class="demo-content">
     <%= render "application/tablist", id: id, tabs: tabs %>
     <% tabs.each do |tab| %>
       <%= render "application/tabpanel", id: tab[:id], hidden: !tab[:selected], code_block: true do %>
         <% if tab[:key] == "result" %>
-          <%= render "demo/content/#{id}/#{tab[:key]}" rescue nil %>
+          <%= render "demos/content/#{id}/#{tab[:key]}" rescue nil %>
         <% else %>
           <%= render "application/code_block", lang: tab[:lang], with_copy_button: false do %>
-            <%= render "demo/content/#{id}/#{tab[:key]}" rescue nil %>
+            <%= render "demos/content/#{id}/#{tab[:key]}" rescue nil %>
           <% end %>
         <% end %>
       <% end %>

@@ -1,5 +1,5 @@
-class CvRequestMailer < ApplicationMailer
-  default from: "cv-request@niza.cz"
+class CvRequestsMailer < ApplicationMailer
+  default from: "cv-requests@niza.cz"
 
   def request_access(access_request)
     @access_request = access_request
@@ -11,6 +11,6 @@ class CvRequestMailer < ApplicationMailer
     @requester_email = requester[:email]
     @message = requester[:message]
 
-    mail(to: ENV["CV_REQUEST_RECIPIENT"], subject: subject)
+    mail(to: ENV["CV_REQUESTS_RECIPIENT"], subject: subject)
   end
 end

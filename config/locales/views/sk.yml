@@ -3,9 +3,10 @@ sk:
   route:
     aria_label: "Prejsť na stránku %{page}"
     home: "Domov"
-    demo: "Demá"
+    demos: "Demá"
     experience: "Skúsenosti"
     services: "Služby"
+    cv: "CV"
   locale:
     en: "Angličtina"
     sk: "Slovenčina"

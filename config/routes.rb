@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root "home#index"
 
-    get "demo" => "demo#index"
+    get "demos" => "demos#index"
     get "experience" => "experience#index"
-    get "services" => "service#index"
+    get "services" => "services#index"
 
     get "cv" => "cv#index"
     get "cv/:token" => "cv#show"
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get "500" => "errors#internal_server_error"
   end
 
-  resource :access_requests, only: [:create]
+  resource :access_request, only: [:create]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

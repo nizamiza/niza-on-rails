@@ -3,9 +3,10 @@ en:
   route:
     aria_label: "Navigate to the %{page} page"
     home: "Home"
-    demo: "Demos"
+    demos: "Demos"
     experience: "Experience"
     services: "Services"
+    cv: "CV"
   locale:
     en: "English"
     sk: "Slovak"

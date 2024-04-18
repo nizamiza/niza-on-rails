@@ -1,4 +1,4 @@
-class AccessRequestController < ApplicationController
+class AccessRequestsController < ApplicationController
   def create
     kind = params[:kind]
     name = params[:name]

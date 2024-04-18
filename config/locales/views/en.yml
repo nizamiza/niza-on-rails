@@ -1,5 +1,7 @@
 ---
 en:
+  contact:
+    email_aria_label: "Click here to open your email app with the address prefilled"
   route:
     aria_label: "Navigate to the %{page} page"
     home: "Home"
@@ -7,6 +9,7 @@ en:
     experience: "Experience"
     services: "Services"
     cv: "CV"
+    personal_data_processing: "Personal Data Processing"
   locale:
     en: "English"
     sk: "Slovak"

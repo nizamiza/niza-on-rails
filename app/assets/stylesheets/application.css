@@ -335,7 +335,7 @@ form {
   gap: 0.825rem;
   width: 100%;
 
-  & > :is(textarea, .form-field:has(textarea)) {
+  & > :is(p, textarea, .form-field:has(textarea)) {
     grid-column: 1 / -1;
   }
 

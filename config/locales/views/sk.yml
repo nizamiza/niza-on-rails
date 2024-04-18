@@ -1,5 +1,7 @@
 ---
 sk:
+  contact:
+    email_aria_label: "Kliknite sem pre otvorenie vášho e-mailového klienta s predvyplnenou adresou"
   route:
     aria_label: "Prejsť na stránku %{page}"
     home: "Domov"
@@ -7,6 +9,7 @@ sk:
     experience: "Skúsenosti"
     services: "Služby"
     cv: "CV"
+    personal_data_processing: "Spracovaním osobných údajov"
   locale:
     en: "Angličtina"
     sk: "Slovenčina"

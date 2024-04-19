@@ -43,17 +43,9 @@ class CvController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
 
-    access_token = AccessToken.new(kind: :cv, expires_at: 7.day.from_now)
-
-    unless access_token.save
-      if Rails.env.development?
-        raise access_token.errors.full_messages.join(", ")
-      end
-
-      raise ActiveRecord::RecordInvalid
-    end
-
     begin
+      access_token = AccessToken.create!(kind: :cv, expires_at: 7.day.from_now)
+
       access_request.update!(access_token: access_token)
       CvRequestsMailer.approve_access(access_request, request.base_url).deliver_now
 

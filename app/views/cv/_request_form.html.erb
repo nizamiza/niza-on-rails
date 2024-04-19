@@ -4,7 +4,7 @@
 <p>
   <%= t("cv.request_form.description") %>
 </p>
-<%= form_with url: "/access_request" do %>
+<%= form_with url: access_request_path do %>
   <input type="hidden" name="kind" value="cv">
   <%= render "application/form_field",
     id: "name",

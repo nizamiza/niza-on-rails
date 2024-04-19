@@ -1,0 +1,112 @@
+<% id = local_assigns.fetch(:id, "demo") %>
+<% tabs = local_assigns.fetch(:tabs, []) %>
+<% selected_tab = local_assigns.fetch(:selected_tab, "result") %>
+
+<section class="demo">
+  <header class="demo-header">
+    <%= render "demos/content/#{id}/header" rescue nil %>
+  </header>
+  <div class="demo-content">
+    <%= render "application/tablist", id: id, tabs: tabs %>
+    <% tabs.each do |tab| %>
+      <%= render "application/tabpanel", id: tab[:id], hidden: !tab[:selected], code_block: true do %>
+        <% if tab[:key] == "result" %>
+          <%= render "demos/content/#{id}/#{tab[:key]}" rescue nil %>
+        <% else %>
+          <%= render "application/code_block", lang: tab[:lang], with_copy_button: false do %>
+            <%= render "demos/content/#{id}/#{tab[:key]}" rescue nil %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% unless tab[:key] == "result" %>
+        <%= render "application/copy_button", text: ":selector(\##{tab[:id]} > code > pre)" rescue nil %>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
+<% content_for_scripts "demo" do %>
+  <script type="module">
+    const demoResultTabpanels = Array.from(
+      document.querySelectorAll(`[role="tabpanel"][id$="-result"]`)
+    );
+
+    function resolveCodeBlockTag(lang) {
+      switch (lang) {
+        case "html":
+          return "div";
+        case "css":
+          return "style";
+        case "javascript":
+        case "js":
+          return "script";
+        default:
+          return "pre";
+      }
+    }
+
+    for (const panel of demoResultTabpanels) {
+      const panelCode = panel.querySelector("pre");
+
+      if (panel.innerHTML.trim() && panelCode.dataset.content?.trim()) {
+        continue;
+      }
+
+      panel.innerHTML = "<p>Loading...</p>";
+
+      const demoId = panel.id.replace("-result", "");
+      const otherPanels = panel.parentElement.querySelectorAll(
+        `[role="tabpanel"][id^="${demoId}"]:not([id$="-result"])`
+      );
+
+      const codeBlocks = [];
+
+      for (const otherPanel of otherPanels) {
+        const lang = otherPanel.id.replace(`${demoId}-`, "");
+        const tag = resolveCodeBlockTag(lang);
+
+        const element = document.createElement(tag);
+
+        let code =
+          otherPanel.querySelector("[data-content]")?.dataset.content || "";
+
+        code = code.trim().replaceAll("&apos;", "'");
+
+        element.innerHTML = code;
+        codeBlocks.push(element);
+      }
+
+      panel.innerHTML = "";
+      panel.append(...codeBlocks);
+    }
+  </script>
+<% end %>
+<% content_for_styles "demo" do %>
+  <style>
+    .demo {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .demo-header {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .demo-content {
+      display: grid;
+      gap: 0;
+      position: relative;
+
+      & .copy-button {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+
+        [hidden] + & {
+          display: none;
+        }
+      }
+    }
+  </style>
+<% end %>

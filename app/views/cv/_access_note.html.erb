@@ -1,0 +1,48 @@
+<dialog class="cv-access-note" data-prevent-offclick open>
+  <%= render "icon/paperclip" %>
+  <p>
+    <%= t "cv.access_note.title" %>
+  </p>
+  <p>
+    <%= raw t("cv.access_note.description") %>
+  </p>
+  <form method="dialog">
+    <button type="submit">
+      <%= t "cv.access_note.close" %>
+    </button>
+  </form>
+</dialog>
+<% content_for_styles "access_note" do %>
+  <style>
+    .cv-access-note[open] {
+      z-index: 100;
+      position: fixed;
+      top: 1rem;
+      left: 0;
+      width: 100%;
+      max-width: min(calc(100% - 2rem), 48ch);
+      margin: 0 auto;
+      padding: 1rem;
+      background-color: khaki;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-radius: var(--br-lg);
+      border: 2px solid color-mix(in srgb, darkkhaki, black 60%);
+      box-shadow: 0 0 0.5rem rgb(0 0 0 / 25%);
+
+      & > form > button {
+        color: inherit;
+        background-color: transparent;
+        border: 2px solid currentColor;
+      }
+    }
+
+    @media print {
+      .cv-access-note[open] {
+        display: none;
+      }
+    }
+  </style>
+<% end %>

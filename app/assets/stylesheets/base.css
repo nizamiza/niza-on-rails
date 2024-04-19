@@ -8,6 +8,10 @@
   --theme-neutral: 214 4% 39%;
   --theme-black: 220 20% 11%;
   --theme-white: 220 23% 98%;
+  --theme-info: 205 100% 94%;
+  --theme-success: 120 100% 94%;
+  --theme-warning: 45 100% 94%;
+  --theme-error: 0 100% 94%;
 
   /* Border radiuses */
   --br-sm: 0.25rem;
@@ -64,6 +68,10 @@
     --theme-dark: 221 19% 70%;
     --theme-light: 240 23% 32%;
     --theme-neutral: 214 4% 88%;
+    --theme-info: 205 100% 18%;
+    --theme-success: 120 100% 18%;
+    --theme-warning: 45 100% 18%;
+    --theme-error: 0 100% 18%;
 
     --bg-color: hsl(var(--theme-black));
     --fg-color: hsl(var(--theme-white));
@@ -157,7 +165,7 @@ h4,
 
 h5,
 .h5 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   max-width: 45ch;
   line-height: 1.1;
@@ -165,10 +173,11 @@ h5,
 
 h6,
 .h6 {
-  font-size: 1.125rem;
+  font-family: var(--ff-mono);
+  font-size: 0.825rem;
   font-weight: 600;
   max-width: 50ch;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 @media screen and (min-width: 48rem) {
@@ -197,7 +206,7 @@ h6,
   }
 }
 
-*:not(.no-default-focus):focus-visible {
+*:not(.no-default-focus, button):focus-visible {
   --backdrop-filter: blur(0.25rem);
   --text-color: hsl(var(--theme-white));
   --backdrop-bg-base: var(--theme-black);
@@ -214,7 +223,7 @@ h6,
       var(--backdrop-offset-base) * var(--backdrop-offset-inline-factor) * -1
     );
 
-  outline: none;
+  outline: 0;
   position: relative;
   color: var(--text-color) !important;
   z-index: 99;

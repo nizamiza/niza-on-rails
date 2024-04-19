@@ -1,16 +1,21 @@
 ---
 sk:
+  contact:
+    email_aria_label: "Kliknite sem pre otvorenie vášho e-mailového klienta s predvyplnenou adresou"
   route:
     aria_label: "Prejsť na stránku %{page}"
     home: "Domov"
-    demo: "Demá"
+    demos: "Demá"
     experience: "Skúsenosti"
     services: "Služby"
+    cv: "CV"
+    personal_data_processing: "Spracovaním osobných údajov"
   locale:
     en: "Angličtina"
     sk: "Slovenčina"
     change: "Zmeniť jazyk"
   back_to: "Späť %{path}"
+  close: "Zavrieť"
   copy_to_clipboard: "Kopírovať do schránky"
   avatar_alt: "Foto Nizu"
   tablist:
@@ -49,3 +54,39 @@ sk:
         website: "Webstránka STU FIIT"
       tpcit:
         website: "TPCIT na Facebooku"
+  cv:
+    request_form:
+      title: "Odoslať formulár"
+      description: >
+        Po odoslaní formulára dostanem o vašej žiadosti oznámenie. Po jej
+        preskúmaní sa vám čo najskôr ozvem.
+      name: "Meno"
+      email: "E-mail"
+      message: "Správa"
+      submit: "Odoslať žiadosť"
+      success: "Vaša žiadosť bola úspešne odoslaná!"
+      error: "Pri odosielaní vašej žiadosti sa vyskytla chyba."
+    approval:
+      success: "Žiadosť bola úspešne schválená!"
+      error: "Pri schvaľovaní žiadosti sa vyskytla chyba."
+      email:
+        subject: "Vaša žiadosť o CV bola schválená!"
+    contact_info:
+      title: "Kontaktné informácie"
+      email: "Napíšte mi"
+      phone: "Zavolajte mi"
+      address: "Kde bývam"
+      languages: "Jazyky, ktorými hovorím"
+      social_links:
+        title: "Nájdete ma aj na"
+        linkedin: "LinkedIn"
+        github: "GitHub"
+        website: "Moja webstránka"
+    access_note:
+      title: "Dobrý deň!"
+      close: "Rozumiem"
+      description: >
+        Super, že ste sa sem dostali. Tento odkaz je jednorazové použitie. Takže
+        ak si chcete môj životopis pozrieť neskôr, uistite sa, že túto stránku
+        vytlačíte alebo uložíte ako PDF. Obvykle to môžete urobiť stlačením
+        <kbd>Ctrl</kbd> + <kbd>P</kbd> na klávesnici.

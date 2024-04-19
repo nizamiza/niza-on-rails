@@ -1,0 +1,14 @@
+<% type = local_assigns.fetch(:type, "notice") %>
+
+<dialog class="status-message" data-type="<%= type %>" open>
+  <%= yield %>
+  <form method="dialog">
+    <button
+      aria-label="<%= t "close" %>"
+      type="submit"
+      title="<%= t "close" %>"
+    >
+      <%= render "icon/close" %>
+    </button>
+  </form>
+</dialog>

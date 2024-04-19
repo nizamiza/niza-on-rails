@@ -18,7 +18,7 @@
 </div>
 
 <% content_for_scripts "tablist" do %>
-  <script>
+  <script type="module">
     const tablists = document.querySelectorAll("[role='tablist']");
     
     for (const list of tablists) {
@@ -57,6 +57,7 @@
       justify-content: space-between;
       white-space: nowrap;
       overflow-x: auto;
+      padding-block-start: 0.5rem;
     }
 
     [role="tab"] {

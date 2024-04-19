@@ -1,0 +1,22 @@
+<% content_for :page_title do %>Vyžiadajte si môj životopis<% end %>
+<% content_for :page_description do %>Tu si môžete vyžiadať môj životopis.<% end %>
+<% content_for :page_header_color do %>rosybrown<% end %>
+<% content_for :page_header do %>
+  <p>
+    Ak by ste chceli vyžiadať môj životopis, vyplňte prosím formulár nižšie.
+  </p>
+  <%= render "application/back_link" %>
+<% end %>
+<main>
+  <% if @requests_disabled %>
+    <section class="section">
+      <p>
+        Momentálne neprijímam nové žiadosti. Skúste sa vrátiť neskôr.
+      </p>
+    </section>
+  <% else %>
+    <section class="section">
+      <%= render "request_form" %>
+    </section>
+  <% end %>
+</main>

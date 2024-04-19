@@ -1,16 +1,21 @@
 ---
 en:
+  contact:
+    email_aria_label: "Click here to open your email app with the address prefilled"
   route:
     aria_label: "Navigate to the %{page} page"
     home: "Home"
-    demo: "Demos"
+    demos: "Demos"
     experience: "Experience"
     services: "Services"
+    cv: "CV"
+    personal_data_processing: "Personal Data Processing"
   locale:
     en: "English"
     sk: "Slovak"
     change: "Change language"
   back_to: "Back to %{path}"
+  close: "Close"
   copy_to_clipboard: "Copy to clipboard"
   avatar_alt: "Photo of Niza"
   tablist:
@@ -49,3 +54,39 @@ en:
         website: "STU FIIT website"
       tpcit:
         website: "TPCIT on Facebook"
+  cv:
+    request_form:
+      title: "Submit the form"
+      description: >
+        Once you submit the form, I will get a notification about your request.
+        After reviewing it, I will get back to you at my earliest convenience.
+      name: "Name"
+      email: "Email"
+      message: "Message"
+      submit: "Request access"
+      success: "Your request has been sent successfully!"
+      error: "An error occurred while sending your request."
+    approval:
+      success: "Request has been successfully approved!"
+      error: "An error occurred while approving the request."
+      email:
+        subject: "Your CV request has been approved!"
+    contact_info:
+      title: "Contact information"
+      email: "Email me"
+      phone: "Call me"
+      address: "Where I live"
+      languages: "Languages I speak"
+      social_links:
+        title: "Find me online"
+        linkedin: "LinkedIn"
+        github: "GitHub"
+        website: "My website"
+    access_note:
+      title: "Hi there!"
+      close: "Got it"
+      description: >
+        Glad you made it here. This link is one-time use only. So if you want to
+        view my CV later, make sure to print this page or save it as a PDF.
+        Usually, you can do this by pressing <kbd>Ctrl</kbd> + <kbd>P</kbd> on
+        your keyboard.

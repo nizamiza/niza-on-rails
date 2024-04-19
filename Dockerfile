@@ -11,7 +11,13 @@ WORKDIR /rails
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="development" \
+    ACCESS_TOKEN_LENGTH=${ACCESS_TOKEN_LENGTH} \
+    APPROVAL_TOKEN_LENGTH=${APPROVAL_TOKEN_LENGTH} \
+    SMTP_USERNAME=${SMTP_USERNAME} \
+    SMTP_PASSWORD=${SMTP_PASSWORD} \
+    CV_REQUESTS_DISABLED=${CV_REQUESTS_DISABLED} \
+    CV_REQUESTS_RECIPIENT=${CV_REQUESTS_RECIPIENT}
 
 
 # Throw-away build stage to reduce size of final image

@@ -1,5 +1,7 @@
 export function initDialogs() {
-  const dialogs = document.querySelectorAll("dialog");
+  const dialogs = document.querySelectorAll(
+    "dialog:not([data-prevent-offclick])"
+  );
 
   document.addEventListener("click", ({ target }) => {
     if (!(target instanceof Element)) {

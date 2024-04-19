@@ -70,3 +70,5 @@ end
 gem "redcarpet", "~> 3.3", ">= 3.3.4"
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "dotenv-rails", "~> 2.1", :group => [:development, :test]

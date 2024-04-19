@@ -1,0 +1,68 @@
+<% id = local_assigns[:id] %>
+<% label = local_assigns[:label] %>
+<% element = local_assigns.fetch(:element, "input") %>
+<% attributes = local_assigns.fetch(:attributes, {}) %>
+
+<fieldset class="form-field">
+  <legend
+    id="<%= id %>-label"
+    onclick="document.getElementById('<%= id %>').focus()"
+  >
+    <%= label %><%= attributes[:required] ? " *" : "" %>
+  </legend>
+  <%= tag.send(element,
+               id: id,
+               name: id,
+               class: "no-default-focus",
+               rows: element == "textarea" ? 5 : nil,
+               aria: { labelledby: "#{id}-label" },
+               **attributes) do %>
+    <%= yield %>
+  <% end %>
+</fieldset>
+
+<% content_for_styles "form_field" do %>
+  <style>
+    .form-field {
+      --padding: 0.5em;
+      --border-color: currentColor;
+      --border-alpha: 80%;
+
+      border-radius: var(--br-lg);
+      padding: 0em var(--padding) var(--padding);
+      border: 1.5px solid color-mix(
+        in srgb,
+        var(--border-color),
+        transparent var(--border-alpha)
+      );
+      position: relative;
+
+      &:is(:focus-within, :has(:user-invalid)) {
+        --border-alpha: 0%;
+      }
+
+      &:has(:user-invalid) {
+        --border-color: firebrick;
+      }
+
+      & > legend {
+        font-weight: 500;
+        padding-inline: 0.25em;
+      }
+
+      & > :not(legend) {
+        color: var(--fg-color);
+        background-color: transparent;
+        border: 0;
+        border-radius: var(--br-md);
+        width: 100%;
+        min-width: 0;
+        resize: vertical;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+  </style>
+<% end %>

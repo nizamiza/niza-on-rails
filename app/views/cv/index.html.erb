@@ -1,0 +1,23 @@
+<% content_for :page_title do %>Request my CV<% end %>
+<% content_for :page_description do %>Here, you can request my curriculum vitae.<% end %>
+<% content_for :page_header_color do %>rosybrown<% end %>
+<% content_for :page_header do %>
+  <p>
+    If you would like to request my curriculum vitae, please fill out the form
+    below.
+  </p>
+  <%= render "application/back_link" %>
+<% end %>
+<main>
+  <% if @requests_disabled %>
+    <section class="section">
+      <p>
+        I am not currently accepting CV requests. Please check back later.
+      </p>
+    </section>
+  <% else %>
+    <section class="section">
+      <%= render "request_form" %>
+    </section>
+  <% end %>
+</main>

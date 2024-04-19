@@ -1,4 +1,4 @@
-class DemoController < ApplicationController
+class DemosController < ApplicationController
   def index
     @default_tab_defs = [
       get_tab_def("result"),

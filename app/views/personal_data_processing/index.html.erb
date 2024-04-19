@@ -1,0 +1,58 @@
+<% content_for :page_title do %>Personal Data Processing<% end %>
+<% content_for :page_description do %>Learn how your personal data is handled on this website.<% end %>
+<% content_for :page_header_color do %>cadetblue<% end %>
+<% content_for :page_header do %>
+  <p>
+    Any data you submit on this website is used only for the purposes of
+    contacting you, and for providing you with the services you request. Your
+    data is never shared with third parties.
+  </p>
+<% end %>
+<main>
+  <section class="section">
+    <h2>Parties Involved</h2>
+    <p>
+      The parties involved in the processing of your personal data are:
+    </p>
+    <ul>
+      <li>
+        <b>Nizomiddin Toshpulatov (hereinafter "I")</b> - the owner of this
+        website, and the person responsible for the processing of your data.
+      </li>
+    </ul>
+  </section>
+  <section class="section">
+    <h2>CV Requests</h2>
+    <p>
+      When you submit the "CV Request" form, I receive an email with the data
+      you submit. I use this data to contact you and to provide you with the
+      information you request.
+    </p>
+    <p>
+      If your request is approved, you receive an email with a link to the 
+      requested CV, upon which your data is deleted from the system.
+    </p>
+    <p>
+      If your request is denied, your data is deleted from the system within 30
+      days.
+    </p>
+    <p>
+      Your data is never shared with third parties.
+    </p>
+  </section>
+  <section class="section">
+    <h2>User Rights</h2>
+    <p>
+      You have the right to access, rectify, and delete your personal data. If
+      you have any questions or requests regarding your data, please contact us
+      using the information provided below.
+    </p>
+  </section>
+  <section class="section">
+    <h2>Contact Information</h2>
+    <p>
+      For any inquiries or concerns about your data and our privacy practices,
+      please contact via email at <%= render "application/contact_email" %>.
+    </p>
+  </section>
+</main>

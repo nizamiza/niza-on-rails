@@ -228,10 +228,10 @@ body {
 }
 
 .status-message[open] {
-  --accent-color: slateblue;
+  --accent-color: var(--theme-info);
 
   all: unset;
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: hsl(var(--accent-color) / 0.85);
   padding: 0.75rem;
   border-radius: var(--br-lg);
   display: grid;
@@ -249,15 +249,15 @@ body {
   }
 
   &[data-type="alert"] {
-    --accent-color: firebrick;
+    --accent-color: var(--theme-error);
   }
 
   &[data-type="warning"] {
-    --accent-color: goldenrod;
+    --accent-color: var(--theme-warning);
   }
 
   &[data-type="success"] {
-    --accent-color: forestgreen;
+    --accent-color: var(--theme-success);
   }
 }
 

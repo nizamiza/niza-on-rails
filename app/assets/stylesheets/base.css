@@ -8,6 +8,10 @@
   --theme-neutral: 214 4% 39%;
   --theme-black: 220 20% 11%;
   --theme-white: 220 23% 98%;
+  --theme-info: 205 100% 94%;
+  --theme-success: 120 100% 94%;
+  --theme-warning: 45 100% 94%;
+  --theme-error: 0 100% 94%;
 
   /* Border radiuses */
   --br-sm: 0.25rem;
@@ -64,6 +68,10 @@
     --theme-dark: 221 19% 70%;
     --theme-light: 240 23% 32%;
     --theme-neutral: 214 4% 88%;
+    --theme-info: 205 100% 18%;
+    --theme-success: 120 100% 18%;
+    --theme-warning: 45 100% 18%;
+    --theme-error: 0 100% 18%;
 
     --bg-color: hsl(var(--theme-black));
     --fg-color: hsl(var(--theme-white));

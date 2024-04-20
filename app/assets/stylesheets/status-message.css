@@ -1,0 +1,48 @@
+.status-message-list {
+  --offset: 1rem;
+
+  display: grid;
+  gap: 1rem;
+  justify-content: end;
+  position: fixed;
+  inset: var(--offset) var(--offset) auto var(--offset);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+}
+
+.status-message[open] {
+  --accent-color: var(--theme-info);
+
+  all: unset;
+  background-color: hsl(var(--accent-color) / 0.85);
+  padding: 0.75rem;
+  border-radius: var(--br-lg);
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  backdrop-filter: blur(1rem);
+  max-width: 40ch;
+  line-height: 2;
+
+  & > form > button {
+    margin: 0;
+    background-color: transparent;
+    color: inherit;
+    padding: 0.25em;
+  }
+
+  &[data-type="alert"] {
+    --accent-color: var(--theme-error);
+  }
+
+  &[data-type="warning"] {
+    --accent-color: var(--theme-warning);
+  }
+
+  &[data-type="success"] {
+    --accent-color: var(--theme-success);
+  }
+}

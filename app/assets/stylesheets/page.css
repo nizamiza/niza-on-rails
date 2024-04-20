@@ -1,0 +1,60 @@
+.page-header {
+  display: grid;
+  grid-column: full-start / full-end;
+  grid-template-columns: subgrid;
+  justify-items: flex-start;
+  gap: 1rem;
+  max-width: 100%;
+  padding-top: 20vh;
+  padding-bottom: 2rem;
+  position: relative;
+
+  & > * {
+    grid-column: main-start / main-end;
+  }
+}
+
+.page-footer {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  opacity: 0.75;
+  margin-top: max(auto, 4rem);
+}
+
+.noise {
+  --base-color: hsl(var(--theme-accent));
+  --end-color: color-mix(in srgb, var(--base-color), var(--bg-color) 70%);
+
+  &::before {
+    --color-space-or-direction: to bottom;
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(
+      var(--color-space-or-direction),
+      var(--base-color),
+      color-mix(in oklab, var(--end-color), transparent 60%)
+    );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: url("noise.svg");
+    background-repeat: repeat;
+    background-size: 28rem;
+  }
+}
+
+@supports (background-image: linear-gradient(in oklab, red, blue)) {
+  .noise::before {
+    --color-space-or-direction: in oklab;
+  }
+}

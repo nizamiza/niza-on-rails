@@ -8,10 +8,10 @@
     teacher. I'm passionate about helping people be more productive and
     efficient in their work and personal lives.
   </p>
-  <p>
+  <p class="a-text-inherit">
     If you're interested in consultations regarding personal organization and
     productivity, or if you're looking for a mentor to help you improve your
-    web development skills, check out my <%= a11y_link_to "services", downcase: true %>.
+    web development skills, check out my <%= a11y_link_to services_path, downcase: true %>.
   </p>
   <%= render "application/social_link_list", links: @social_links %>
 <% end %>
@@ -30,7 +30,7 @@
       Check out some of the demos I've created. Most of them are taken from my
       blog posts, but some are just for fun.
     </p>
-    <%= a11y_link_to "demo" %>
+    <%= a11y_link_to demos_path %>
   </section class="section">
   <section class="section">
     <h2>Experience</h2>
@@ -38,6 +38,6 @@
       My professional background and education is outlined as a timeline. Check
       it out if you want to learn more.
     </p>
-    <%= a11y_link_to "experience" %>
+    <%= a11y_link_to experience_path %>
   </section class="section">
 </main>

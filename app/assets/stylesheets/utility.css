@@ -1,3 +1,7 @@
+.a-text-inherit a {
+  color: inherit;
+}
+
 .order-first {
   order: -1;
 }

@@ -32,8 +32,19 @@
       required: true
     }
   %>
-  <%= render "cv/personal_data_processing_note" %>
+  <p class="caption data-processing-note">
+    <%= render "cv/personal_data_processing_note" %>
+  </p>
   <button type="submit">
     <%= t("cv.request_form.submit") %> 
   </button>
+<% end %>
+
+<% content_for_styles "cv_request_form" do %>
+  <style>
+    .data-processing-note {
+      margin-block-start: 1rem;
+      justify-self: center;
+    }
+  </style>
 <% end %>

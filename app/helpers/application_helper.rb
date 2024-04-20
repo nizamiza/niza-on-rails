@@ -42,12 +42,16 @@ module ApplicationHelper
     content.gsub(/^#{indentation}/, "")
   end
 
-  def localize_path(path: request.path, locale: I18n.locale)
-    is_default_locale = locale == I18n.default_locale
-
+  def delocalize_path(path: request.path)
     delocalized_path = path.gsub(
       /^\/(#{I18n.available_locales.join("|")})\/?/, "/"
     )
+  end
+
+  def localize_path(path: request.path, locale: I18n.locale)
+    is_default_locale = locale == I18n.default_locale
+
+    delocalized_path = delocalize_path(path: path)
 
     resolved_path = delocalized_path == "home" ? "/" : delocalized_path
     final_path = resolved_path.start_with?("/") ? resolved_path : "/#{resolved_path}"
@@ -61,7 +65,7 @@ module ApplicationHelper
 
   def a11y_link_to(path, options = {})
     should_downcase = options.delete(:downcase)
-    route_label = t("route.#{path}")
+    route_label = t("route.#{delocalize_path(path: path).gsub("/", "")}")
 
     if should_downcase
       route_label = route_label.downcase

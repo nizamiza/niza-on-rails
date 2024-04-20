@@ -42,8 +42,8 @@ module ApplicationHelper
     content.gsub(/^#{indentation}/, "")
   end
 
-  def delocalize_path(path: request.path)
-    delocalized_path = path.gsub(
+  def delocalize_path(path)
+    path.gsub(
       /^\/(#{I18n.available_locales.join("|")})\/?/, "/"
     )
   end
@@ -51,9 +51,7 @@ module ApplicationHelper
   def localize_path(path: request.path, locale: I18n.locale)
     is_default_locale = locale == I18n.default_locale
 
-    delocalized_path = delocalize_path(path: path)
-
-    resolved_path = delocalized_path == "home" ? "/" : delocalized_path
+    resolved_path = delocalize_path(path)
     final_path = resolved_path.start_with?("/") ? resolved_path : "/#{resolved_path}"
 
     if is_default_locale
@@ -63,9 +61,19 @@ module ApplicationHelper
     end
   end
 
+  def t_route(path)
+    delocalized_path = delocalize_path(path)
+
+    if delocalized_path == "/"
+      return t("route.home")
+    end
+
+    t("route.#{delocalized_path.gsub("/", "")}")
+  end
+
   def a11y_link_to(path, options = {})
     should_downcase = options.delete(:downcase)
-    route_label = t("route.#{delocalize_path(path: path).gsub("/", "")}")
+    route_label = t_route(path)
 
     if should_downcase
       route_label = route_label.downcase
@@ -73,8 +81,9 @@ module ApplicationHelper
 
     link_to(
       route_label,
-      localize_path(path: path, **options),
-      "aria-label": t("route.aria_label", page: t("route.#{path}")),
+      path,
+      "aria-label": t("route.aria_label", page: route_label),
+      **options,
     )
   end
 

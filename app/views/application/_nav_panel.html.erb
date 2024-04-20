@@ -1,4 +1,4 @@
-<% paths = ["home", "cv", "demos", "experience", "services"] %>
+<% paths = [root_path, cv_path, demos_path, experience_path, services_path] %>
 <% dialog_id = "locale-change-dialog" %>
 <% ordered_locales = I18n.available_locales.sort_by { |locale| locale == I18n.locale ? 0 : 1 } %>
 
@@ -14,6 +14,7 @@
     type="button"
     class="locale-change-button"
     id="locale-change-button"
+    title="<%= t "locale.change" %>"
     aria-label="<%= t "locale.change" %>"
     aria-controls="<%= dialog_id %>"
     aria-expanded="false"

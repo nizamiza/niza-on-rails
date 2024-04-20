@@ -35,8 +35,6 @@ en:
       description: >
         Sorry, but something went wrong. Try refreshing the page or come back
         later.
-  home:
-    title: "Home"
   social:
     github: "Check out my GitHub profile"
     linkedin: "Check out my LinkedIn profile"

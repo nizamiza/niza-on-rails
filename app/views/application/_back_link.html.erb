@@ -1,10 +1,8 @@
-<% default_path = localize_path(path: "/") %>
-<% path = local_assigns.fetch(:path, default_path) %>
-<% path_name = path == default_path ? t("home.title") : path.gsub("/", "") %>
+<% path = local_assigns.fetch(:path, root_path) %>
 
 <%= link_to(path, class: "back-link") do %>
   <%= render "icon/arrow" %>
-  <%= t "back_to", path: path_name.downcase %>
+  <%= t "back_to", path: t_route(path).downcase %>
 <% end %>
 
 <% content_for_styles "back-link" do %>

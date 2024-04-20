@@ -14,7 +14,7 @@ sk:
     en: "Angličtina"
     sk: "Slovenčina"
     change: "Zmeniť jazyk"
-  back_to: "Späť %{path}"
+  back_to: "Späť na %{path}"
   close: "Zavrieť"
   copy_to_clipboard: "Kopírovať do schránky"
   avatar_alt: "Foto Nizu"
@@ -35,8 +35,6 @@ sk:
       description: >
         Ospravedlňujem sa, ale niečo sa pokazilo. Skúste obnoviť stránku alebo
         sa vráťte neskôr.
-  home:
-    title: "Domov"
   social:
     github: "Môj profil na GitHub"
     linkedin: "Môj profil na LinkedIn"

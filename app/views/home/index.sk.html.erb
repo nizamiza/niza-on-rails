@@ -18,6 +18,14 @@
 <% end %>
 <main>
   <section class="section">
+    <h2>Projekty</h2>
+    <p>
+      Nevolám to "portfólio", ale ak chcete vidieť niektoré z projektov, na
+      ktorých som pracoval, pozrite si tie, na ktoré som relatívne hrdý.
+    </p>
+    <%= a11y_link_to projects_path %>
+  </section>
+  <section class="section">
     <h2>Blog</h2>
     <p>
       Mám blog na <%= render "application/blog_link" do %>HEY World<% end %>.
@@ -26,19 +34,19 @@
     </p>
   </section>
   <section class="section">
-    <h2>Demá</h2>
-    <p>
-      Pozrite si niektoré z dem, ktoré som vytvoril. Väčšina z nich je z môjich
-      blogových príspevkov, ale niektoré sú len tak pre zábavu.
-    </p>
-    <%= a11y_link_to demos_path %>
-  </section class="section">
-  <section class="section">
     <h2>Skúsenosti</h2>
     <p>
       Pozrite si moje skúsenosti a zručnosti, ktoré som získal počas svojej
       kariéry. Môžete sa dozvedieť viac o mojich projektov a spolupráciach.
     </p>
     <%= a11y_link_to experience_path %>
-  </section class="section">
+  </section>
+  <section class="section">
+    <h2>Demá</h2>
+    <p>
+      Pozrite si niektoré z dem, ktoré som vytvoril. Väčšina z nich je z môjich
+      blogových príspevkov, ale niektoré sú len tak pre zábavu.
+    </p>
+    <%= a11y_link_to demos_path %>
+  </section>
 </main>

@@ -1,0 +1,68 @@
+<% projects = local_assigns.fetch(:projects, []) %>
+
+<ul class="card-array project-list">
+  <% projects.each do |project| %>
+    <li>
+      <a
+        href="<%= project[:repo_url] %>"
+        class="project-list-item-card"
+        target="_blank"
+        rel="noopener noreferrer"
+        onmousemove='
+          const [x, y] = [event.clientX, event.clientY];
+          const { left, top } = this.getBoundingClientRect();
+          const [dx, dy] = [x - left, y - top];
+
+          this.style.setProperty("--hover-x", `${dx}px`);
+          this.style.setProperty("--hover-y", `${dy}px`);
+        '
+      >
+        <h3 class="h5"><%= project[:title] %></h3>
+        <%= image_tag project[:cover_image_path], alt: project[:title] %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for_styles "project_list" do %>
+  <style>
+    .project-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .project-list-item-card {
+      --base-color: lightpink;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+      gap: 0.75rem;
+      background-color: color-mix(in srgb, var(--base-color), transparent 40%);
+      border-radius: var(--br-lg);
+      padding: 0.75rem;
+
+      & > img {
+        aspect-ratio: 4 / 2.75;
+        object-fit: cover;
+        border-radius: var(--br-md);
+      }
+
+      &:hover {
+        background-image: radial-gradient(
+          circle at var(--hover-x, 50%) var(--hover-y, 50%),
+          var(--base-color) 10%,
+          transparent 50%
+        );
+      }
+
+      @media (prefers-color-scheme: dark) {
+        --base-color: palevioletred;
+      }
+    }
+  </style>
+<% end %>

@@ -5,9 +5,11 @@ en:
   route:
     aria_label: "Navigate to the %{page} page"
     home: "Home"
+    blog: "Blog"
     demos: "Demos"
     experience: "Experience"
     services: "Services"
+    projects: "Projects"
     cv: "CV"
     personal_data_processing: "Personal Data Processing"
   locale:
@@ -53,8 +55,16 @@ en:
       tpcit:
         website: "TPCIT on Facebook"
   cv:
+    requests_disabled:
+      title: "CV requests are disabled"
+      description: >
+        Either I am occuppied at the moment and not interested in sharing my CV
+        with recruiters, or there is some other reason. In any case, right now,
+        I am not accepting CV requests. Please check back later or contact me
+        via email.
     request_form:
       title: "Submit the form"
+      title_alt: "Request CV access"
       description: >
         Once you submit the form, I will get a notification about your request.
         After reviewing it, I will get back to you at my earliest convenience.

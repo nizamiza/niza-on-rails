@@ -170,3 +170,22 @@ form {
   font-family: var(--ff-mono);
   font-size: var(--fs-caption);
 }
+
+.card-array {
+  --cols: 3;
+  --gap: 1rem;
+  --min-width-base: 20ch;
+  --ideal-width: calc(100% / var(--cols) - var(--gap));
+  --min-width: max(var(--ideal-width), var(--min-width-base));
+  --max-width: 100%;
+  --basis: clamp(var(--min-width), var(--ideal-width), var(--max-width));
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: var(--gap);
+
+  & > * {
+    flex: 1 1 var(--basis);
+  }
+}

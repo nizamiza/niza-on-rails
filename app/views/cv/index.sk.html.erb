@@ -8,15 +8,5 @@
   <%= render "application/back_link" %>
 <% end %>
 <main>
-  <% if @requests_disabled %>
-    <section class="section">
-      <p>
-        Momentálne neprijímam nové žiadosti. Skúste sa vrátiť neskôr.
-      </p>
-    </section>
-  <% else %>
-    <section class="section">
-      <%= render "request_form" %>
-    </section>
-  <% end %>
+  <%= render "body", show_disabled_note: true %>
 </main>

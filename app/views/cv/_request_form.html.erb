@@ -1,5 +1,7 @@
+<% title_key = compare_paths(request.path, cv_path) ? "title" : "title_alt" %>
+
 <h2>
-  <%= t("cv.request_form.title") %>
+  <%= t("cv.request_form.#{title_key}") %>
 </h2>
 <p>
   <%= t("cv.request_form.description") %>

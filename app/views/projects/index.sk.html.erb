@@ -1,0 +1,27 @@
+<% content_for :page_title do %>Projekty<% end %>
+<% content_for :page_description do %>Tu si môžete prezrieť zoznam projektov, na ktorých som pracoval.<% end %>
+<% content_for :page_header_color do %>pink<% end %>
+<% content_for :page_header do %>
+  <p>
+    Tu si môžete prezrieť zoznam projektov, na ktorých som pracoval a ktoré sa
+    nehanbím zdieľať so svetom 🙈
+  </p>
+  <%= render "application/back_link" %>
+<% end %>
+<main>
+  <section class="section">
+    <h2 class="sr-only">Moje projekty</h2>
+    <%= render "project_list", projects: @projects %>
+  </section>
+  <section class="section">
+    <h2 class="h4">Chcete si pozrieť viac?</h2>
+    <p>
+      Ak chcete vidieť viac mojich projektov, navštívte
+      <%= render "application/github_link" do %>
+        môj profil na GitHub-e
+      <% end %>.
+    </p>
+  </section>
+  <%= render "cv/body" %>
+</main>
+

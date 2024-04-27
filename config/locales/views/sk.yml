@@ -5,9 +5,11 @@ sk:
   route:
     aria_label: "Prejsť na stránku %{page}"
     home: "Domov"
+    blog: "Blog"
     demos: "Demá"
     experience: "Skúsenosti"
     services: "Služby"
+    projects: "Projekty"
     cv: "CV"
     personal_data_processing: "Spracovaním osobných údajov"
   locale:
@@ -53,8 +55,16 @@ sk:
       tpcit:
         website: "TPCIT na Facebooku"
   cv:
+    requests_disabled:
+      title: "Žiadosti o CV sú vypnuté"
+      description: >
+        Buď som momentálne zaneprázdnený a nezaujíma ma zdieľanie môjho životopisu
+        s náborármi, alebo je nejaký iný dôvod. V každom prípade, práve teraz,
+        neakceptujem žiadosti o CV. Vraťte sa neskôr alebo sa pokúste o kontakt
+        cez e-mail.
     request_form:
       title: "Odoslať formulár"
+      title_alt: "Požiadať o CV"
       description: >
         Po odoslaní formulára dostanem o vašej žiadosti oznámenie. Po jej
         preskúmaní sa vám čo najskôr ozvem.

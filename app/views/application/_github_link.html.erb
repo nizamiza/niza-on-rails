@@ -1,0 +1,10 @@
+<% repo = local_assigns.fetch(:repo, "") %>
+<% url = "https://github.com/nizamiza/#{repo}" %>
+
+<a
+  href="<%= url %>"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <%= yield %>
+</a>

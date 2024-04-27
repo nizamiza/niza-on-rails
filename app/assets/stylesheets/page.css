@@ -28,6 +28,8 @@
   --base-color: hsl(var(--theme-accent));
   --end-color: color-mix(in srgb, var(--base-color), var(--bg-color) 70%);
 
+  position: relative;
+
   &::before {
     --color-space-or-direction: to bottom;
 

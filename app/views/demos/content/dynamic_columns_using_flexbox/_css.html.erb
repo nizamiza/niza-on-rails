@@ -1,0 +1,41 @@
+.card-array {
+  --cols: 3;
+  --gap: 1rem;
+  --min-width-base: 20ch;
+  --ideal-width: calc(100% / var(--cols) - var(--gap));
+  --min-width: max(var(--ideal-width), var(--min-width-base));
+  --max-width: 100%;
+  --basis: clamp(var(--min-width), var(--ideal-width), var(--max-width));
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & > * {
+    flex: 1 1 var(--basis);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: color-mix(
+    in srgb,
+    currentColor,
+    transparent 90%
+  );
+
+  & > h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+}
+

@@ -48,6 +48,10 @@ module ApplicationHelper
     )
   end
 
+  def compare_paths(path, other_path)
+    delocalize_path(path) == delocalize_path(other_path)
+  end
+
   def localize_path(path: request.path, locale: I18n.locale)
     is_default_locale = locale == I18n.default_locale
 

@@ -8,6 +8,7 @@ class DemosController < ApplicationController
     ]
 
     @demos = [
+      create_demo("dynamic_columns_using_flexbox"),
       create_demo("text_decoration_hamburger_menu"),
       create_demo("pure_html_counter", [
         get_tab_def("result"),

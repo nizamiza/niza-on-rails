@@ -1,0 +1,18 @@
+<% show_disabled_note = local_assigns.fetch(:show_disabled_note, false) %>
+
+<% if @cv_requests_disabled %>
+  <% if show_disabled_note %>
+    <section class="section">
+      <h2 class="h3">
+        <%= t "cv.requests_disabled.title" %>
+      </h2>
+      <p>
+        <%= t "cv.requests_disabled.description" %>
+      </p>
+    </section>
+  <% end %>
+<% else %>
+  <section class="section">
+    <%= render "cv/request_form" %>
+  </section>
+<% end %>

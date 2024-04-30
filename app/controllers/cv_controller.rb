@@ -1,6 +1,5 @@
 class CvController < ApplicationController
   def index
-    @requests_disabled = ENV["CV_REQUESTS_DISABLED"] == "true"
   end
 
   def show

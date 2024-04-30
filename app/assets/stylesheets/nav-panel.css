@@ -86,6 +86,16 @@
   background-color: transparent;
   padding: 0.125rem;
   order: 99;
+
+  &:focus-visible {
+    color: hsl(var(--theme-black));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:focus-visible {
+      color: hsl(var(--theme-white));
+    }
+  }
 }
 
 .locale-change-dialog[open] {

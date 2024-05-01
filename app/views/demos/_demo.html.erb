@@ -19,7 +19,7 @@
         <% end %>
       <% end %>
       <% unless tab[:key] == "result" %>
-        <%= render "application/copy_button", text: ":selector(\##{tab[:id]} > code > pre)" rescue nil %>
+        <%= render "application/copy_button", text: ":selector(\##{tab[:id]} > code > pre)" %>
       <% end %>
     <% end %>
   </div>

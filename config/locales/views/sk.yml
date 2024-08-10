@@ -42,6 +42,7 @@ sk:
     linkedin: "Môj profil na LinkedIn"
     spotify: "Môj profil na Spotify"
     youtube: "Môj kanál na YouTube"
+    gravatar: "Môj profil na Gravatar"
   experience:
     present: "Súčasnosť"
     work:
@@ -90,6 +91,7 @@ sk:
         linkedin: "LinkedIn"
         github: "GitHub"
         website: "Moja webstránka"
+        gravatar: "Môj profil na Gravatar"
     access_note:
       title: "Dobrý deň!"
       close: "Rozumiem"

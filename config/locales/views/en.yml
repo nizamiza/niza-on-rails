@@ -42,6 +42,7 @@ en:
     linkedin: "Check out my LinkedIn profile"
     spotify: "Check out my Spotify profile"
     youtube: "Check out my YouTube channel"
+    gravatar: "Check out my Gravatar profile"
   experience:
     present: "Present"
     work:
@@ -58,7 +59,7 @@ en:
     requests_disabled:
       title: "CV requests are disabled"
       description: >
-        Either I am occuppied at the moment and not interested in sharing my CV
+        Either I am occupied at the moment and not interested in sharing my CV
         with recruiters, or there is some other reason. In any case, right now,
         I am not accepting CV requests. Please check back later or contact me
         via email.
@@ -90,6 +91,7 @@ en:
         linkedin: "LinkedIn"
         github: "GitHub"
         website: "My website"
+        gravatar: "My Gravatar profile"
     access_note:
       title: "Hi there!"
       close: "Got it"

@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   def index
     @social_links = [
       {
+        url: "https://gravatar.com/nizamiza",
+        type: "gravatar",
+      },
+      {
         url: "https://github.com/nizamiza",
         type: "github",
       },

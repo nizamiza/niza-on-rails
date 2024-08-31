@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     get "demos" => "demos#index"
     get "experience" => "experience#index"
-    get "services" => "services#index"
+    # get "services" => "services#index"
     get "projects" => "projects#index"
     get "personal_data_processing" => "personal_data_processing#index"
 
